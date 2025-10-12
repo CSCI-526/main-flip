@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Hazard
+  - Player
+  - Projectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1688965215
+    locked: 0
+  - name: Ground and Walls
+    uniqueID: 1367524581
+    locked: 0
+  - name: Hazard
+    uniqueID: 1316632231
+    locked: 0
+  - name: Player, Enemy, Obstacle
+    uniqueID: 32019357
+    locked: 0
+  - name: Foreground
+    uniqueID: 1720441399
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  - Environment
+  - Hints
+  - 'Player '
