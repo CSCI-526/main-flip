@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 340859845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1533989a40443cb9a6a22b231bfab7, type: 3}
+  m_Script: {fileID: 11500000, guid: 76cbc592e07db4a01bae38d07c2b46c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: 1
@@ -1066,8 +1066,8 @@ GameObject:
   m_Component:
   - component: {fileID: 365177021}
   - component: {fileID: 365177022}
-  - component: {fileID: 365177024}
   - component: {fileID: 365177023}
+  - component: {fileID: 365177024}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 365177020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50528b67d88cf456781e236a53ee54c5, type: 3}
+  m_Script: {fileID: 11500000, guid: fb23d61e209ad487e92a65c4f8fddbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 340859852}
@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 421456359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1612ebb3d17884ae7bd7b75f6a4daef7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d37502aa081d46cc94013002ed552e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1738215202}
@@ -3552,9 +3552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e4e103b02a5480ab6113b3f7af7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 576242162}
-  smooth: 8
-  offset: {x: 0, y: 0, z: -10}
 --- !u!1 &576242157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,7 +3565,6 @@ GameObject:
   - component: {fileID: 576242160}
   - component: {fileID: 576242159}
   - component: {fileID: 576242163}
-  - component: {fileID: 576242164}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -3713,7 +3709,7 @@ Transform:
   m_GameObject: {fileID: 576242157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.87, y: -8.93, z: 0.021072213}
+  m_LocalPosition: {x: 17.2, y: -9.02, z: 0.021072213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3731,24 +3727,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 576242157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8dfc31735abd43b3b949abc8689efff, type: 3}
+  m_Script: {fileID: 11500000, guid: a7220fec83fbe430481ff05e5dbef405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
   gravityMagnitude: 3
   rb: {fileID: 0}
---- !u!114 &576242164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576242157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cdf7d38e58c14426baed8c65ce087fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4006,7 @@ GameObject:
   - component: {fileID: 745080217}
   - component: {fileID: 745080218}
   - component: {fileID: 745080220}
-  - component: {fileID: 745080219}
+  - component: {fileID: 745080221}
   m_Layer: 0
   m_Name: Circle-1
   m_TagString: Untagged
@@ -4100,21 +4084,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &745080219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745080216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1612ebb3d17884ae7bd7b75f6a4daef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 777453502}
-  exitOffsetY: 0.5
-  cooldown: 0.25
 --- !u!58 &745080220
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4151,6 +4120,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &745080221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745080216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d37502aa081d46cc94013002ed552e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 777453502}
+  exitOffsetY: 0.5
+  cooldown: 0.25
 --- !u!1 &770923679
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,7 +12788,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 777453501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1612ebb3d17884ae7bd7b75f6a4daef7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d37502aa081d46cc94013002ed552e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 745080217}
@@ -13223,6 +13207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd83dee6549b466ba378a316a1890bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerZone: {fileID: 58616461}
+  openedGate: {fileID: 1168356881}
+  levelCompleteUI: {fileID: 206802635}
 --- !u!1 &1162658859
 GameObject:
   m_ObjectHideFlags: 0
@@ -13234,7 +13221,7 @@ GameObject:
   - component: {fileID: 1162658860}
   - component: {fileID: 1162658861}
   - component: {fileID: 1162658863}
-  - component: {fileID: 1162658862}
+  - component: {fileID: 1162658864}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -13312,21 +13299,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1162658862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162658859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40f020fce6a0e4648b7ca7764ef884ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 1475298840}
-  hazardToDestroy: {fileID: 0}
-  portalToActivate: {fileID: 0}
 --- !u!58 &1162658863
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13363,6 +13335,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &1162658864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162658859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0b632d157274f008ce1f9faa202951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 1475298840}
+  hazardToDestroy: {fileID: 0}
+  portalToActivate: {fileID: 0}
 --- !u!1 &1168356881
 GameObject:
   m_ObjectHideFlags: 0
@@ -13493,8 +13480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea766ed75c6742cba981416fad64feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 576242162}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1303027610
 GameObject:
   m_ObjectHideFlags: 0
@@ -15947,7 +15932,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475298833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03aacd3645a10498e901bdaff92a1fb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a1888c2167914241b56146f7df9a7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 9
@@ -16374,7 +16359,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576354232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 258ee4f8b30464368bef40b56b24ae39, type: 3}
+  m_Script: {fileID: 11500000, guid: 22212704e29d24251b176efaa50187bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   downDistance: 5
@@ -17358,7 +17343,7 @@ GameObject:
   - component: {fileID: 1738215202}
   - component: {fileID: 1738215203}
   - component: {fileID: 1738215205}
-  - component: {fileID: 1738215204}
+  - component: {fileID: 1738215206}
   m_Layer: 0
   m_Name: Circle-2
   m_TagString: Untagged
@@ -17436,21 +17421,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1738215204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738215201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1612ebb3d17884ae7bd7b75f6a4daef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 421456360}
-  exitOffsetY: 0.5
-  cooldown: 0.25
 --- !u!58 &1738215205
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17487,6 +17457,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &1738215206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738215201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d37502aa081d46cc94013002ed552e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 421456360}
+  exitOffsetY: 0.5
+  cooldown: 0.25
 --- !u!1 &1902488153
 GameObject:
   m_ObjectHideFlags: 0
@@ -17621,7 +17606,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902488153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3d8cc6e66d741e69025bf262cc0cac, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ac12804405a44b380018ef41152ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1576354239}
@@ -17982,7 +17967,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2068432089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a1533989a40443cb9a6a22b231bfab7, type: 3}
+  m_Script: {fileID: 11500000, guid: 76cbc592e07db4a01bae38d07c2b46c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: 1
@@ -17996,8 +17981,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2097899380}
   - component: {fileID: 2097899381}
-  - component: {fileID: 2097899383}
   - component: {fileID: 2097899382}
+  - component: {fileID: 2097899383}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -18120,7 +18105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097899379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50528b67d88cf456781e236a53ee54c5, type: 3}
+  m_Script: {fileID: 11500000, guid: fb23d61e209ad487e92a65c4f8fddbe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 2068432096}
