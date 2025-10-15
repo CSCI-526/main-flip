@@ -50,6 +50,9 @@ TagManager:
   - name: Hazard
     uniqueID: 1316632231
     locked: 0
+  - name: Magnet
+    uniqueID: 2920571575
+    locked: 0
   - name: Player, Enemy, Obstacle
     uniqueID: 32019357
     locked: 0
