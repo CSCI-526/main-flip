@@ -18,7 +18,7 @@ public class PlayerPoleControll : MonoBehaviour
 
     void UpdatePole()
     {
-        Magetism magetism = GetComponent<Magetism>(); 
+        Magnetism magetism = GetComponent<Magnetism>(); 
 
         if (magetism == null) return;
 
@@ -52,7 +52,7 @@ public class PlayerPoleControll : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.isKinematic = true; 
         }

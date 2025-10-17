@@ -23,7 +23,7 @@ public class PlayerMagnetStick : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Magetism>() != null)
+        if (collision.gameObject.GetComponent<Magnetism>() != null)
         {
             currentPlatform = collision.gameObject;
             lastPlatformPos = currentPlatform.transform.position;
