@@ -58,7 +58,6 @@ public class LevelManager : MonoBehaviour
             p.transform.position = currentRespawnPos;
 
             var rb = p.GetComponent<Rigidbody2D>();
-            var pc = p.GetComponent<PlayerController2D>();
 
             if (rb) rb.SetRotation(0f);                
             p.transform.rotation = Quaternion.identity; 
@@ -67,13 +66,11 @@ public class LevelManager : MonoBehaviour
 
             if (rb)
             {
-                rb.gravityScale = pc ? Mathf.Abs(pc.gravityMagnitude) : Mathf.Abs(rb.gravityScale);
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
                 rb.simulated = false;                   
             }
-
-            if (pc) pc.enabled = false;                
+    
         }
 
         yield return new WaitForSeconds(freezeSeconds);
@@ -84,10 +81,8 @@ public class LevelManager : MonoBehaviour
             if (!p) continue;
 
             var rb = p.GetComponent<Rigidbody2D>();
-            var pc = p.GetComponent<PlayerController2D>();
 
             if (rb) rb.simulated = true;
-            if (pc) pc.enabled = true;
         }
 
         isRespawning = false;
