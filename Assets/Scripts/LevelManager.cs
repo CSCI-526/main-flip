@@ -32,9 +32,9 @@ public class LevelManager : MonoBehaviour
     }
 
     // Set the current active checkpoint.
-    public void SetActiveCheckpoint(Checkpoint cp)
+    public void SetActiveCheckpoint(Vector3 pos)
     {
-        currentRespawnPos = cp.transform.position;
+        currentRespawnPos = pos;
     }
 
     // Freeze all players for freezeSeconds, then resume
