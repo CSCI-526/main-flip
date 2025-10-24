@@ -7,6 +7,7 @@ public class GlobalGravity2D : MonoBehaviour
     [Min(0f)] public float gravityMagnitude = 3f;   
     public bool startUpwards = true;               
     public bool resetVerticalVelocityOnFlip = true; 
+    public int changeCount = 0;
 
     [Header("Targets")]
     public List<Rigidbody2D> targets = new List<Rigidbody2D>(); 
@@ -24,6 +25,7 @@ public class GlobalGravity2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             currentSign *= -1f;   
+            changeCount += 1;
             ApplyGravityScaleToAll();
         }
     }
@@ -56,5 +58,11 @@ public class GlobalGravity2D : MonoBehaviour
     public void RemoveTarget(Rigidbody2D rb)
     {
         if (rb) targets.Remove(rb);
+    }
+
+    public void switchGravity()
+    {
+        currentSign *= -1f;
+        ApplyGravityScaleToAll();
     }
 }

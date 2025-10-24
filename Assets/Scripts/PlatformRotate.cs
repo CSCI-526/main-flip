@@ -30,5 +30,9 @@ public class PlatformRotate : MonoBehaviour
     {
         isRotating = true;
     }
-    
+
+    public void Deactivate()
+    {
+        isRotating = false;
+    }
 }
