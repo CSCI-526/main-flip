@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/map-modified.unity
     guid: 298b5a299392947b1874ed277b3dda4f
   - enabled: 1
-    path: Assets/Scenes/flip.unity
+    path: Assets/Scenes/flip level 1 (tutorial).unity
     guid: b71a535174fc449e8a7159f11215a536
   - enabled: 1
     path: Assets/Scenes/flip level 2.unity
