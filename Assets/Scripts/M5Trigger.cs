@@ -37,6 +37,7 @@ public class M5Trigger : MonoBehaviour
         {
             platform.SetActive(false);
         }
+        LevelAnalytics.Instance?.MarkTrigger("Trigger2");
 
         Destroy(gameObject);
     }
