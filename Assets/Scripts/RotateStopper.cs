@@ -16,4 +16,13 @@ public class RotateStopper : MonoBehaviour
         foreach (var r in toStop)
             if (r) r.PauseRotation(true);
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            foreach (var r in toStop)
+                if (r) r.PauseRotation(false);
+        }
+    }
 }

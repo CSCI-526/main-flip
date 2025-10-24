@@ -4,23 +4,26 @@ using System.Collections;
 public class PlatformRotateL2_180 : MonoBehaviour
 {
 
-
-    [Header("Pivot")]
-    public Transform pivotTransform;
-    
-    [Header("Rotation")]
+    [Header("Rotation Settings")]
     public float targetAngle = 180f;
-    public float duration = 0.5f;
-    public AnimationCurve ease = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    public float duration = 1.0f;
+    public AnimationCurve ease = AnimationCurve.EaseInOut(0,0,1,1);
 
-    [Header("Physics")]
-    public bool disableRigidbodiesDuringRotate = true;
+    [Header("Physics Settings")]
+    public bool disableChildRigidbodiesDuringRotate = true;
 
-    bool hasRotated = false;
-    bool isRotating = false;
+    private Rigidbody2D rb;
+    private bool hasRotated = false;
+    private bool isRotating = false;
 
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+    }
 
-    public void Activate()
+    public void TriggerRotateOnce()
     {
         if (hasRotated || isRotating) return;
         StartCoroutine(RotateRoutine());
@@ -30,39 +33,45 @@ public class PlatformRotateL2_180 : MonoBehaviour
     {
         isRotating = true;
 
-        Rigidbody2D[] rb2ds = disableRigidbodiesDuringRotate ? GetComponentsInChildren<Rigidbody2D>() : null;
-        if (rb2ds != null)
+        Rigidbody2D[] childRBs = null;
+        if (disableChildRigidbodiesDuringRotate)
         {
-            foreach (var rb in rb2ds) if (rb) rb.simulated = false;
+            childRBs = GetComponentsInChildren<Rigidbody2D>();
+            foreach (var r in childRBs)
+            {
+                if (!r || r == rb) continue;
+                r.simulated = false;
+            }
         }
 
-        Vector3 pivot = pivotTransform.position;
+        float from = rb.rotation;
+        float to = from + targetAngle;
 
-        float elapsed = 0f;
-        float prev = 0f;
-
-        while (elapsed < duration)
+        float t = 0f;
+        while (t < duration)
         {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float eased = ease.Evaluate(t);
-            float current = Mathf.LerpUnclamped(0f, targetAngle, eased);
-            float delta = current - prev;
-            prev = current;
-
-            transform.RotateAround(pivot, Vector3.forward, delta);
+            t += Time.deltaTime;
+            float k = Mathf.Clamp01(t / duration);
+            float e = ease.Evaluate(k);
+            float z = Mathf.LerpAngle(from, to, e);
+            rb.MoveRotation(z);
             yield return null;
         }
 
-        if (rb2ds != null)
+        rb.MoveRotation(to);
+
+        if (childRBs != null)
         {
-            foreach (var rb in rb2ds) if (rb) rb.simulated = true;
+            foreach (var r in childRBs)
+            {
+                if (!r || r == rb) continue;
+                r.simulated = true;
+            }
         }
 
         hasRotated = true;
         isRotating = false;
     }
-
 
 }
 

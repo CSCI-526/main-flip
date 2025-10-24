@@ -3,13 +3,9 @@ using System.Collections;
 
 public class RotateTriggerL2_180 : MonoBehaviour
 {
-    public PlatformRotateL2_180 platform;
-    [Header("Player Follow Options")]
-    public bool carryPlayer = true;
-    private bool isTriggered = false;
+    public PlatformRotateL2_180 pivotScript; 
 
-    private Transform playerOrigParent;
-    private Vector3   playerOrigLocalScale;
+    private bool isTriggered = false;
 
     // To make sure the collider is a trigger
     void Reset()
@@ -29,30 +25,13 @@ public class RotateTriggerL2_180 : MonoBehaviour
 
         isTriggered = true;
 
-        if (carryPlayer)
+        if (pivotScript != null)
         {
-            playerOrigParent = player.transform.parent;
-            if (rb) rb.freezeRotation = true;
-            player.transform.SetParent(platform.transform, true);
+            pivotScript.TriggerRotateOnce();
         }
 
-        platform.Activate();
         Destroy(gameObject);
 
-        StartCoroutine(RestoreAfter(platform.duration, player, rb));
-    }
-
-    IEnumerator RestoreAfter(float wait, GameObject player, Rigidbody2D rb)
-    {
-        yield return new WaitForSeconds(Mathf.Max(0f, wait) + 0.05f);
-
-        if (carryPlayer && player)
-        {
-            player.transform.SetParent(playerOrigParent, true);
-            if (rb) rb.freezeRotation = false;
-        }
-
-        
     }
     
 }
