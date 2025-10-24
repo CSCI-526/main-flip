@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;  
 
-public class PlayerMagnetismControll : MonoBehaviour
+public class PlayerMagnetismControl : MonoBehaviour
 {
     void Update()
     {
