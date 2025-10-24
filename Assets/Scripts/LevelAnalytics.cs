@@ -1,4 +1,6 @@
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,51 +8,59 @@ public class LevelAnalytics : MonoBehaviour
 {
     public static LevelAnalytics Instance;
 
-    private float triggerActivatedTime = -1f;
-    private string analyticsFilePath;
+    private string csvPath;
+
+    private readonly Dictionary<string, float> lastTriggerTime = new();
+    private string lastTriggerId = null;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        csvPath = Path.Combine(Application.dataPath, "AnalyticsData.csv");
+        EnsureHeader();
+    }
+
+    private void EnsureHeader()
+    {
+        if (!File.Exists(csvPath))
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            File.WriteAllText(csvPath, "Trigger,ResponseTimeSec,Scene\n");
         }
-        else
+    }
+
+    public void MarkTrigger(string triggerId)
+    {
+        float t = Time.time;
+        lastTriggerTime[triggerId] = t;
+        lastTriggerId = triggerId;
+        Debug.Log($"[Analytics] Trigger '{triggerId}' at {t:F2}s");
+    }
+
+    public void MarkGateReached()
+    {
+        if (string.IsNullOrEmpty(lastTriggerId) || !lastTriggerTime.ContainsKey(lastTriggerId))
         {
-            Destroy(gameObject);
+            Debug.Log("[Analytics] Gate reached but no trigger was recorded.");
             return;
         }
 
-        analyticsFilePath = Path.Combine(Application.dataPath, "AnalyticsData.csv");
+        float start = lastTriggerTime[lastTriggerId];
+        float response = Mathf.Max(0f, Time.time - start);
 
-        if (!File.Exists(analyticsFilePath))
-        {
-            File.WriteAllText(analyticsFilePath, "Scene,TriggerActivatedTime,TriggerResponseTime\n");
-        }
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        string line = $"{lastTriggerId},{response:F2},{sceneName}\n";
+        File.AppendAllText(csvPath, line);
+
+        Debug.Log($"[Analytics] Logged: {line.Trim()} → {csvPath}");
     }
 
-    public void OnTriggerActivated()
+    public void ResetForLevel()
     {
-        triggerActivatedTime = Time.time;
-        Debug.Log($"[Analytics] Trigger activated at {triggerActivatedTime:F2}s");
-    }
-
-    public void OnLevelCompleted()
-    {
-        if (triggerActivatedTime > 0f)
-        {
-            float completionTime = Time.time - triggerActivatedTime;
-            string sceneName = SceneManager.GetActiveScene().name;
-
-            string line = $"{sceneName},{triggerActivatedTime:F2},{completionTime:F2}\n";
-            File.AppendAllText(analyticsFilePath, line);
-
-            Debug.Log($"[Analytics] Time from trigger to gate: {completionTime:F2}s saved to AnalyticsData.csv");
-        }
-        else
-        {
-            Debug.Log("[Analytics] Gate reached before trigger or trigger not logged.");
-        }
+        lastTriggerId = null;
+        lastTriggerTime.Clear();
     }
 }

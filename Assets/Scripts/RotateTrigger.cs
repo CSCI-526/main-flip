@@ -24,7 +24,8 @@ public class RotateTrigger : MonoBehaviour
             platform.Activate();
             magnetism.currentPole = MagneticPole.South;
             Destroy(gameObject);
-            LevelAnalytics.Instance?.OnTriggerActivated(); 
+            //LevelAnalytics.Instance?.OnTriggerActivated(); 
+            LevelAnalytics.Instance?.MarkTrigger("Trigger1"); 
         }         
     }
 }

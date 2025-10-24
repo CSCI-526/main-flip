@@ -27,7 +27,8 @@ public class Gate : MonoBehaviour
         {
             levelCompleteUI.Show();
             //StartCoroutine(UploadMetric());
-            LevelAnalytics.Instance?.OnLevelCompleted();
+            //LevelAnalytics.Instance?.OnLevelCompleted();
+            LevelAnalytics.Instance?.MarkGateReached();
         }
     }
     
