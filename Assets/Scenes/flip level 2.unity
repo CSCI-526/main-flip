@@ -32806,6 +32806,7 @@ GameObject:
   - component: {fileID: 771465807}
   - component: {fileID: 771465809}
   - component: {fileID: 771465808}
+  - component: {fileID: 771465810}
   m_Layer: 0
   m_Name: MagnetWall 3
   m_TagString: Untagged
@@ -33020,6 +33021,19 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+--- !u!114 &771465810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771465799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae7c62bc6f4d0c45b90480049862ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frictionStrength: 10
 --- !u!1 &780443730
 GameObject:
   m_ObjectHideFlags: 0
@@ -33656,7 +33670,7 @@ Transform:
   m_GameObject: {fileID: 977530143}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 20.44, y: 2.59, z: 0}
+  m_LocalPosition: {x: 20.2, y: 2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
