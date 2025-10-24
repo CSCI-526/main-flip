@@ -35865,6 +35865,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1404445191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 351231402662887859, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
+  m_PrefabInstance: {fileID: 7191206777776637043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1415064309
 GameObject:
   m_ObjectHideFlags: 0
@@ -44000,7 +44011,6 @@ GameObject:
   - component: {fileID: 1999386393}
   - component: {fileID: 1999386392}
   - component: {fileID: 1999386394}
-  - component: {fileID: 1999386395}
   m_Layer: 0
   m_Name: MagnetWall 5 - Gravity Inactive
   m_TagString: Untagged
@@ -44228,18 +44238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionStrength: 10
---- !u!114 &1999386395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999386387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8e32b48948b4a95857e0e545435464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2005461192
 GameObject:
   m_ObjectHideFlags: 0
@@ -45053,6 +45051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7176151201860364326, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
+      propertyPath: nextLevelButton
+      value: 
+      objectReference: {fileID: 1404445191}
     - target: {fileID: 9053716889555120593, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
