@@ -13,7 +13,7 @@ public class InvisibleGoalTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            LevelAnalytics.Instance?.MarkGateReached();
+            LevelAnalytics.Instance?.MarkPlatformReached();
         }
     }
 }

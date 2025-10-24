@@ -48,11 +48,35 @@ public class LevelAnalytics : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "flip level 2") 
+        if (currentScene.name == "flip level 2")
         {
             Debug.Log("[Analytics] Skipped metric upload — this is the second scene.");
             return;
         }
+
+        if (string.IsNullOrEmpty(lastTriggerId) || !lastTriggerTime.ContainsKey(lastTriggerId))
+        {
+            Debug.Log("[Analytics] Gate reached but no trigger was recorded.");
+            return;
+        }
+
+        float start = lastTriggerTime[lastTriggerId];
+        float response = Mathf.Max(0f, Time.time - start);
+        string sceneName = currentScene.name;
+
+        if (alsoWriteCsv)
+        {
+            string csvLine = $"{lastTriggerId},{response:F2},{sceneName}\n";
+            File.AppendAllText(csvPath, csvLine);
+            Debug.Log($"[Analytics→CSV] {csvLine.Trim()} → {csvPath}");
+        }
+
+        StartCoroutine(UploadMetric(lastTriggerId, response, sceneName));
+    }
+    
+    public void MarkPlatformReached()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
 
         if (string.IsNullOrEmpty(lastTriggerId) || !lastTriggerTime.ContainsKey(lastTriggerId))
         {
