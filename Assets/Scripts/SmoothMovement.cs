@@ -27,7 +27,14 @@ public class SmoothMovement : MonoBehaviour
             }
         }
         else {
-            transform.position = initialPosition;
+            if (Vector3.Distance(transform.position, initialPosition) > 0.01f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, initialPosition, speed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                transform.position = initialPosition;
+            }
         }
     }
 

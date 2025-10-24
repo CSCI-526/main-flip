@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a732578e24e9a72488bad67efcd2df72
+guid: f902126625bbbd54eba812d4b24f17c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8404901821979942457
-    second: up.drawio_0
+      213: 3616955991754040537
+    second: Spolarity.drawio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: up.drawio_0
+      name: Spolarity.drawio_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 9
-        width: 1010
-        height: 1011
+        x: 4
+        y: 0
+        width: 996
+        height: 996
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93ed52f0da534a470800000000000000
-      internalID: 8404901821979942457
+      spriteID: 9d468b0af42023230800000000000000
+      internalID: 3616955991754040537
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      up.drawio_0: 8404901821979942457
+      Spolarity.drawio_0: 3616955991754040537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

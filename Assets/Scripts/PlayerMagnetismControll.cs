@@ -25,4 +25,19 @@ public class PlayerMagnetismControl : MonoBehaviour
             }
         }
     }
+
+    public void switchPole() {
+        Magnetism magnetism = GetComponent<Magnetism>();
+
+        if (magnetism == null) return;
+
+        if (magnetism.currentPole == MagneticPole.North)
+        {
+            magnetism.currentPole = MagneticPole.South;
+        }
+        else
+        {
+            magnetism.currentPole = MagneticPole.North;
+        }
+    }
 }

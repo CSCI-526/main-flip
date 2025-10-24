@@ -14,12 +14,12 @@ public class MoveBackTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (isTriggered) return;
+        //if (isTriggered) return;
         if (other.CompareTag("Player"))
         {
-            isTriggered = true;
+            //isTriggered = true;
             smoothMovement.Deactivate();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         
     }

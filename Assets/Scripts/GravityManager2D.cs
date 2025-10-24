@@ -57,4 +57,10 @@ public class GlobalGravity2D : MonoBehaviour
     {
         if (rb) targets.Remove(rb);
     }
+
+    public void switchGravity()
+    {
+        currentSign *= -1f;   
+        ApplyGravityScaleToAll();
+    }
 }
