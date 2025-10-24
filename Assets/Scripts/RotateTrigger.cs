@@ -4,7 +4,6 @@ public class RotateTrigger : MonoBehaviour
 {
 
     public PlatformRotate platform;
-    public Magnetism magnetism;
     private bool isTriggered = false;
 
     // To make sure the collider is a trigger
@@ -22,7 +21,6 @@ public class RotateTrigger : MonoBehaviour
         {
             isTriggered = true;
             platform.Activate();
-            magnetism.currentPole = MagneticPole.South;
             Destroy(gameObject);
         }
         
