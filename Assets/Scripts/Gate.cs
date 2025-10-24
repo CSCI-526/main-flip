@@ -26,7 +26,7 @@ public class Gate : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             levelCompleteUI.Show();
-            StartCoroutine(UploadMetric());
+            //StartCoroutine(UploadMetric());
             LevelAnalytics.Instance?.OnLevelCompleted();
         }
     }
