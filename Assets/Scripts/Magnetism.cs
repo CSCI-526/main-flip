@@ -140,6 +140,3 @@ public class Magnetism : MonoBehaviour
             collidingMagnets.Remove(collision.gameObject);
     }
 }
-
-
-
