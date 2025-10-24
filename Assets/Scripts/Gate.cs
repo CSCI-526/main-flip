@@ -25,7 +25,10 @@ public class Gate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            levelCompleteUI.Show();   
+            levelCompleteUI.Show();
+            //StartCoroutine(UploadMetric());
+            //LevelAnalytics.Instance?.OnLevelCompleted();
+            LevelAnalytics.Instance?.MarkGateReached();
         }
     }
     
