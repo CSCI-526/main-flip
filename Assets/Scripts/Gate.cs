@@ -31,5 +31,18 @@ public class Gate : MonoBehaviour
             LevelAnalytics.Instance?.MarkGateReached();
         }
     }
+
+    // IEnumerator UploadMetric()
+    // {
+    //     int cnt = 0;
+    //     cnt = gravityManager.changeCount;
+    //     Debug.Log("Uploading gravity flip count: " + cnt);
+
+    //     string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSe-hiIOkGqwkCmQ8dC5_93IlR7FMVcI_AV6SNpna58033PkLg/formResponse";
+    //     WWWForm form = new WWWForm();
+    //     form.AddField("entry.1010152915", cnt.ToString());
+        // UnityWebRequest www = UnityWebRequest.Post(URL, form);
+        // yield return www.SendWebRequest();
+    // }
     
 }
