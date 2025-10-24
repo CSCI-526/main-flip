@@ -22,7 +22,7 @@ public class RotateTrigger : MonoBehaviour
             isTriggered = true;
             platform.Activate();
             Destroy(gameObject);
-        }
-        
+            LevelAnalytics.Instance?.OnTriggerActivated(); 
+        }         
     }
 }
