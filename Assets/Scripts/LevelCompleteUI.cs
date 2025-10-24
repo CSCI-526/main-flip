@@ -7,6 +7,7 @@ public class LevelCompleteUI : MonoBehaviour
 {
     [SerializeField] private CanvasGroup group;
     [SerializeField] private Button replayButton;
+    [SerializeField] private Button nextLevelButton;
 
     [SerializeField] private float fadeDuration = 0.15f;
     [SerializeField] private bool pauseOnShow = true;
@@ -31,7 +32,16 @@ public class LevelCompleteUI : MonoBehaviour
     {
         gameObject.SetActive(true);
         StartCoroutine(FadeCanvas(1f));
-        if (pauseOnShow) Time.timeScale = 0f;
+
+        if (pauseOnShow)
+            Time.timeScale = 0f;
+
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevelButton != null)
+        {
+            bool hasNextLevel = nextIndex < SceneManager.sceneCountInBuildSettings;
+            nextLevelButton.gameObject.SetActive(hasNextLevel);
+        }
     }
 
     public void Hide()
@@ -83,5 +93,13 @@ public class LevelCompleteUI : MonoBehaviour
             group.blocksRaycasts = false;
             gameObject.SetActive(false);
         }
+    }
+
+    public void OnNextLevelClicked()
+    {
+        if (pauseOnShow) Time.timeScale = 1f;
+        int next = SceneManager.GetActiveScene().buildIndex + 1;
+        if (next < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(next);
     }
 }
