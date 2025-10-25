@@ -47414,10 +47414,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6625232026114692945, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7176151201860364326, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
       propertyPath: nextLevelButton
       value: 
       objectReference: {fileID: 1404445191}
+    - target: {fileID: 8465935586414878084, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.6
+      objectReference: {fileID: 0}
     - target: {fileID: 9053716889555120593, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
