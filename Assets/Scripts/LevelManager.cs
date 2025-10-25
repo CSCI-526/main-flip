@@ -1,6 +1,8 @@
 using System.Net.NetworkInformation;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -29,6 +31,12 @@ public class LevelManager : MonoBehaviour
         Instance = this;
 
         currentRespawnPos = defaultSpawn.position;
+    }
+
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Set the current active checkpoint.
