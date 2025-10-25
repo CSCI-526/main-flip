@@ -34213,7 +34213,7 @@ SliderJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -11.5, y: 8}
+  m_ConnectedAnchor: {x: -11.5, y: 8.5}
   m_AutoConfigureAngle: 0
   m_Angle: 90
   m_UseMotor: 0
@@ -34223,7 +34223,7 @@ SliderJoint2D:
   m_UseLimits: 1
   m_TranslationLimits:
     m_LowerTranslation: 0
-    m_UpperTranslation: 11.5
+    m_UpperTranslation: 12
 --- !u!50 &780443737
 Rigidbody2D:
   serializedVersion: 5
@@ -35146,6 +35146,32 @@ MonoBehaviour:
   magnet5Active: {fileID: 291377579}
   magnet5Inactive: {fileID: 1999386387}
   platform: {fileID: 2032990795}
+  moveLeftDistance: 3
+  moveDuration: 1
+  ease:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1029481396
 GameObject:
   m_ObjectHideFlags: 0
@@ -36148,6 +36174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1250334671}
   - component: {fileID: 1250334672}
+  - component: {fileID: 1250334675}
   - component: {fileID: 1250334674}
   - component: {fileID: 1250334673}
   m_Layer: 0
@@ -36235,7 +36262,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250334670}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -36250,10 +36277,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 1
 --- !u!61 &1250334674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36300,6 +36327,43 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1250334675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250334670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd67486e5b0b74add82f6cc55f8181b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDuration: 1
+  defaultEase:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1254856375
 GameObject:
   m_ObjectHideFlags: 0
@@ -36691,7 +36755,7 @@ Transform:
   m_GameObject: {fileID: 1292754276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.3, y: -9.7, z: 0}
+  m_LocalPosition: {x: -0.55, y: -5.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42552,6 +42616,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 20, y: 12, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 21, y: 12, z: 0}
     second:
       serializedVersion: 2
@@ -42726,15 +42800,15 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 266
+  - m_RefCount: 267
     m_Data: {fileID: 11400000, guid: 0fc12e08bb1fe4fb59c2529b659e4ba5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 266
+  - m_RefCount: 267
     m_Data: {fileID: 7482667652216324306, guid: e816d4736b76143698b0ee5fb0512058, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 266
+  - m_RefCount: 267
     m_Data:
       e00: 1
       e01: 0
@@ -42753,7 +42827,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 266
+  - m_RefCount: 267
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -42857,9 +42931,9 @@ CompositeCollider2D:
       - X: 200000000
         Y: 150000000
       - X: 200000000
-        Y: 130000000
+        Y: 120000000
       - X: 210000000
-        Y: 130000000
+        Y: 120000000
       - X: 210000000
         Y: -10000000
       - X: 160000000
@@ -42959,8 +43033,8 @@ CompositeCollider2D:
       - {x: 13, y: 15.999971}
       - {x: 13.00003, y: 15}
       - {x: 20, y: 14.999971}
-      - {x: 20.000029, y: 13}
-      - {x: 21, y: 12.99997}
+      - {x: 20.000029, y: 12}
+      - {x: 21, y: 11.99997}
       - {x: 20.999971, y: -1}
       - {x: 16, y: -1.0000293}
       - {x: 16.000029, y: -2}
@@ -44005,7 +44079,7 @@ SliderJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.5, y: 8}
+  m_ConnectedAnchor: {x: 4.5, y: 8.5}
   m_AutoConfigureAngle: 1
   m_Angle: 90
   m_UseMotor: 0
@@ -44015,7 +44089,7 @@ SliderJoint2D:
   m_UseLimits: 1
   m_TranslationLimits:
     m_LowerTranslation: 0
-    m_UpperTranslation: 11.5
+    m_UpperTranslation: 12
 --- !u!50 &1874979652
 Rigidbody2D:
   serializedVersion: 5
@@ -46591,6 +46665,7 @@ GameObject:
   - component: {fileID: 2032990797}
   - component: {fileID: 2032990798}
   - component: {fileID: 2032990799}
+  - component: {fileID: 2032990800}
   m_Layer: 0
   m_Name: Platform - Move 1
   m_TagString: Untagged
@@ -46654,8 +46729,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1367524581
-  m_SortingLayer: 2
+  m_SortingLayerID: -1374395721
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: e816d4736b76143698b0ee5fb0512058, type: 3}
   m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
@@ -46722,7 +46797,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032990795}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -46737,10 +46812,47 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &2032990800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032990795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7132b2e180a4f59bf3252af6b02bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDuration: 1.5
+  defaultEase:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2060494502
 GameObject:
   m_ObjectHideFlags: 0
