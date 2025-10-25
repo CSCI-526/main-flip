@@ -29841,6 +29841,7 @@ GameObject:
   - component: {fileID: 398353506}
   - component: {fileID: 398353508}
   - component: {fileID: 398353507}
+  - component: {fileID: 398353509}
   m_Layer: 0
   m_Name: OneWayDoorOpenAreaC
   m_TagString: Untagged
@@ -29923,6 +29924,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &398353509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398353505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d089fb693f64089926ffe07ac17df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 398353506}
 --- !u!1 &409754375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5832612268111225713, guid: 1618547e8bc05482f87eef17b99f77f3, type: 3}
@@ -33309,6 +33323,7 @@ GameObject:
   - component: {fileID: 1127452985}
   - component: {fileID: 1127452987}
   - component: {fileID: 1127452988}
+  - component: {fileID: 1127452989}
   m_Layer: 0
   m_Name: OneWayDoorOpenAreaA
   m_TagString: Untagged
@@ -33391,6 +33406,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1607214241}
   smoothMovement: {fileID: 1607214244}
+--- !u!114 &1127452989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127452984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d089fb693f64089926ffe07ac17df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 1127452985}
 --- !u!1 &1167809780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9082504728852343800, guid: 1618547e8bc05482f87eef17b99f77f3, type: 3}
@@ -33512,6 +33540,7 @@ GameObject:
   - component: {fileID: 1232816314}
   - component: {fileID: 1232816316}
   - component: {fileID: 1232816315}
+  - component: {fileID: 1232816317}
   m_Layer: 0
   m_Name: OneWayDoorOpenAreaB
   m_TagString: Untagged
@@ -33528,7 +33557,7 @@ Transform:
   m_GameObject: {fileID: 1232816313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: -12, z: 0}
+  m_LocalPosition: {x: -0.5, y: -5, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33582,7 +33611,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -1.5, y: 7}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -33594,6 +33623,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &1232816317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232816313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d089fb693f64089926ffe07ac17df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 1232816314}
 --- !u!1 &1292754276
 GameObject:
   m_ObjectHideFlags: 0
