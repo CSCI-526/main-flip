@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     public float followSpeed = 5f;
     public float deadZoneX = 0.2f;
     public float deadZoneY = 0.2f;
+
     private float minX;
     private float maxX;
     private float minY;
@@ -25,44 +26,47 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if (target == null)
+        {
+            return;
+        }
+
+
         Vector3 targetPosition = target.position;
-        Vector3 viewportPoint = cam.WorldToViewportPoint(targetPosition);
         Vector3 currentCamPosition = transform.position;
-        Vector3 newCamPosition = currentCamPosition;
+        Vector3 targetCamPosition = currentCamPosition;
+        Vector3 viewportPoint = cam.WorldToViewportPoint(targetPosition);
+        float zDistance = Mathf.Abs(currentCamPosition.z - targetPosition.z);
 
         if (viewportPoint.x < minX)
         {
-            float offset = cam.ViewportToWorldPoint(new Vector3(minX, 0, transform.position.z)).x;
-            newCamPosition.x = offset;
+            float edgeWorldX = cam.ViewportToWorldPoint(new Vector3(minX, 0.5f, zDistance)).x;
+            float deltaX = targetPosition.x - edgeWorldX;
+            targetCamPosition.x = currentCamPosition.x + deltaX;
         }
         else if (viewportPoint.x > maxX)
         {
-            float offset = cam.ViewportToWorldPoint(new Vector3(maxX, 0, transform.position.z)).x;
-            newCamPosition.x = offset;
+            float edgeWorldX = cam.ViewportToWorldPoint(new Vector3(maxX, 0.5f, zDistance)).x;
+            float deltaX = targetPosition.x - edgeWorldX;
+            targetCamPosition.x = currentCamPosition.x + deltaX;
         }
 
         if (viewportPoint.y < minY)
         {
-            float offset = cam.ViewportToWorldPoint(new Vector3(0, minY, transform.position.z)).y;
-            newCamPosition.y = offset;
+            float edgeWorldY = cam.ViewportToWorldPoint(new Vector3(0.5f, minY, zDistance)).y;
+            float deltaY = targetPosition.y - edgeWorldY;
+            targetCamPosition.y = currentCamPosition.y + deltaY;
         }
         else if (viewportPoint.y > maxY)
         {
-            float offset = cam.ViewportToWorldPoint(new Vector3(0, maxY, transform.position.z)).y;
-            newCamPosition.y = offset;
+            float edgeWorldY = cam.ViewportToWorldPoint(new Vector3(0.5f, maxY, zDistance)).y;
+            float deltaY = targetPosition.y - edgeWorldY;
+            targetCamPosition.y = currentCamPosition.y + deltaY;
         }
 
-        newCamPosition.z = currentCamPosition.z;
-        Vector3 smoothedPosition = Vector3.Lerp(currentCamPosition, newCamPosition, followSpeed * Time.deltaTime);
+
+        targetCamPosition.z = currentCamPosition.z;
+        Vector3 smoothedPosition = Vector3.Lerp(currentCamPosition, targetCamPosition, followSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
     }
-
-    //void OnDrawGizmosSelected()
-    //{
-    //    if (Application.isPlaying)
-    //    {
-    //        Gizmos.color = Color.cyan;
-    //        Gizmos.DrawWireCube(transform.position, new Vector3(deadZoneX * 2, deadZoneY * 2, 0));
-    //    }
-    //}
 }

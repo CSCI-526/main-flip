@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GlobalGravity2D : MonoBehaviour
 {
@@ -13,10 +15,16 @@ public class GlobalGravity2D : MonoBehaviour
 
     float currentSign; 
 
+    public float forceFieldSwitchEnergy = 1.0f;
+    public float forceFieldSwitchMaxEnergy = 1.0f;
+    public float forceFieldSwitchEnergyRechargeSpeed = 0.1f;
+    public Image energyBar;
+    float lastSwitchTime = -Mathf.Infinity;
+
     void Awake()
     {
         currentSign = startUpwards ? -1f : 1f;
-        ApplyGravityScaleToAll();
+        ApplyGravityScaleToAll(true);
     }
 
     void Update()
@@ -24,12 +32,27 @@ public class GlobalGravity2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             currentSign *= -1f;   
-            ApplyGravityScaleToAll();
+            ApplyGravityScaleToAll(false);
+        }
+
+        if (forceFieldSwitchEnergy < forceFieldSwitchMaxEnergy)
+        {
+            forceFieldSwitchEnergy += Time.deltaTime * forceFieldSwitchEnergyRechargeSpeed;
+            if (forceFieldSwitchEnergy > forceFieldSwitchMaxEnergy)
+                forceFieldSwitchEnergy = forceFieldSwitchMaxEnergy;
+        }
+
+        if (energyBar)
+        {
+            energyBar.fillAmount = forceFieldSwitchEnergy / forceFieldSwitchMaxEnergy;
         }
     }
 
-    void ApplyGravityScaleToAll()
+    void ApplyGravityScaleToAll(bool ignoreEnergy = false)
     {
+        if (!ignoreEnergy && forceFieldSwitchEnergy < 1.0f)
+            return;
+        
         float g = currentSign * Mathf.Abs(gravityMagnitude);
 
         for (int i = 0; i < targets.Count; i++)
@@ -41,6 +64,11 @@ public class GlobalGravity2D : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
 
             rb.gravityScale = g;
+        }
+
+        if (!ignoreEnergy) {
+            forceFieldSwitchEnergy -= 1.0f;
+            lastSwitchTime = Time.time;
         }
     }
 
@@ -61,6 +89,6 @@ public class GlobalGravity2D : MonoBehaviour
     public void switchGravity()
     {
         currentSign *= -1f;   
-        ApplyGravityScaleToAll();
+        ApplyGravityScaleToAll(false);
     }
 }
