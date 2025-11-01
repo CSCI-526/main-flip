@@ -30,7 +30,7 @@ public class GravityIndicator : MonoBehaviour
         }
 
         if (GlobalGravity2DController.forceFieldSwitchEnergy < 1.0f)
-        {
+        {   
             gravityDirectionDisabledImage.enabled = true;
         }
         else
