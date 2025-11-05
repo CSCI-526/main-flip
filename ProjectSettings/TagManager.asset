@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 1688965215
     locked: 0
+  - name: Rail
+    uniqueID: 3336950753
+    locked: 0
   - name: Ground and Walls
     uniqueID: 1367524581
     locked: 0

@@ -17,6 +17,8 @@ public class Checkpoint : MonoBehaviour
         Vector3 pos = respawnPoint ? respawnPoint.position : transform.position;
 
         LevelManager.Instance.SetActiveCheckpoint(pos);
+
+        Destroy(gameObject);
     }
 }
 
