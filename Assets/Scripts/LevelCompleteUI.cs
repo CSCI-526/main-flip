@@ -8,10 +8,12 @@ public class LevelCompleteUI : MonoBehaviour
     [SerializeField] private CanvasGroup group;
     [SerializeField] private Button replayButton;
     [SerializeField] private Button nextLevelButton;
+    [SerializeField] private Button backToMenuButton;
 
     [SerializeField] private float fadeDuration = 0.15f;
     [SerializeField] private bool pauseOnShow = true;
     [SerializeField] private bool hideOnAwake = true;
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     void Reset()
     {
@@ -42,6 +44,12 @@ public class LevelCompleteUI : MonoBehaviour
             bool hasNextLevel = nextIndex < SceneManager.sceneCountInBuildSettings;
             nextLevelButton.gameObject.SetActive(hasNextLevel);
         }
+
+        int current = SceneManager.GetActiveScene().buildIndex;
+        int total = SceneManager.sceneCountInBuildSettings;
+
+        bool isLastLevel = current >= total - 1;
+        if (backToMenuButton) backToMenuButton.gameObject.SetActive(isLastLevel);
     }
 
     public void Hide()
@@ -55,6 +63,20 @@ public class LevelCompleteUI : MonoBehaviour
         if (pauseOnShow) Time.timeScale = 1f;
         var current = SceneManager.GetActiveScene();
         SceneManager.LoadScene(current.buildIndex);
+    }
+
+    public void OnNextLevelClicked()
+    {
+        if (pauseOnShow) Time.timeScale = 1f;
+        int next = SceneManager.GetActiveScene().buildIndex + 1;
+        if (next < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(next);
+    }
+
+    public void OnBackToMenuClicked()
+    {
+        if (pauseOnShow) Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
     private void HideImmediate()
@@ -95,11 +117,5 @@ public class LevelCompleteUI : MonoBehaviour
         }
     }
 
-    public void OnNextLevelClicked()
-    {
-        if (pauseOnShow) Time.timeScale = 1f;
-        int next = SceneManager.GetActiveScene().buildIndex + 1;
-        if (next < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(next);
-    }
+
 }
