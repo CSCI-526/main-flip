@@ -2879,6 +2879,7 @@ MonoBehaviour:
   triggerZone: {fileID: 852435688}
   openedGate: {fileID: 350991475}
   levelCompleteUI: {fileID: 968071179}
+  skipLevelCompleteUI: 1
 --- !u!50 &875619331
 Rigidbody2D:
   serializedVersion: 5

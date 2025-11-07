@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Gate : MonoBehaviour
     [Header("Gate States")]
     public GameObject openedGate;
     public LevelCompleteUI levelCompleteUI;
+    [SerializeField] private bool skipLevelCompleteUI = false;
 
 
     // Initialize references to colliders and gate states.
@@ -25,7 +27,16 @@ public class Gate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            levelCompleteUI.Show();
+            if (skipLevelCompleteUI)
+                {
+                    int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                        SceneManager.LoadScene(nextIndex);
+                }
+                else
+                {
+                    levelCompleteUI.Show();
+                }
             //StartCoroutine(UploadMetric());
             //LevelAnalytics.Instance?.OnLevelCompleted();
             LevelAnalytics.Instance?.MarkGateReached();
