@@ -45011,7 +45011,7 @@ MonoBehaviour:
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
   moveSpeed: 3
-  newPosition: {x: 11, y: 3, z: 0}
+  newPosition: {x: 9.5, y: 20, z: 0}
 --- !u!61 &963970710
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54942,8 +54942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1292754280}
   followSpeed: 5
-  deadZoneX: 0.4
-  deadZoneY: 0.4
+  deadZoneX: 0.2
+  deadZoneY: 0.2
 --- !u!1 &1999322555
 GameObject:
   m_ObjectHideFlags: 0
