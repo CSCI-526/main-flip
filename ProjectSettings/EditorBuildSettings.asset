@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/flip level 1 (tutorial).unity
     guid: b71a535174fc449e8a7159f11215a536
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: ff06eaff9a2074ae3ba05925e4e1686d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels.unity
     guid: 7f09c6b22b0ed4a5ca64d9c9089e0589
   - enabled: 1
@@ -41,10 +41,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/flip_magnetism_tutorial.unity
     guid: 9764b253327085242a7ece534b993486
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/flip gravity tutorial.unity
     guid: 5f1337ed95825b9408f707688027b296
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/flip magnetic tutorial.unity
     guid: 107fd03b474ae1e4a899b6497c17164e
   m_configObjects:
