@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ff06eaff9a2074ae3ba05925e4e1686d
   - enabled: 1
-    path: Assets/Scenes/flip new features.unity
+    path: Assets/Scenes/flip gravity tutorial.unity
     guid: 5f1337ed95825b9408f707688027b296
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
