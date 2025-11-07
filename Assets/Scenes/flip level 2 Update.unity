@@ -30301,7 +30301,7 @@ SliderJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 12.5, y: 13.5}
+  m_ConnectedAnchor: {x: 12.5, y: 13.7}
   m_AutoConfigureAngle: 1
   m_Angle: 90
   m_UseMotor: 0
@@ -30311,7 +30311,7 @@ SliderJoint2D:
   m_UseLimits: 1
   m_TranslationLimits:
     m_LowerTranslation: 0.1
-    m_UpperTranslation: 5
+    m_UpperTranslation: 5.2
 --- !u!50 &291377583
 Rigidbody2D:
   serializedVersion: 5

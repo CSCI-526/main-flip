@@ -4,8 +4,6 @@ public class M3Trigger : MonoBehaviour
 {
     [Header("Targets")]
     public M3ZoneActivator zoneActivator;
-    public GameObject Hazard;
-    
     private bool isTriggered = false;
 
     void Reset()
@@ -20,9 +18,7 @@ public class M3Trigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         
         isTriggered = true;
-        
-        if (Hazard) Hazard.SetActive(true);
-        
+                
         if (zoneActivator)
         {
             zoneActivator.ActivateZoneLogic();
