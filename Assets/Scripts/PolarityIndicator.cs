@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class PolarityIndicator : MonoBehaviour
 {
     public Image polarityImage;
+    public Image polarityDisabledImage;
+    public PlayerMagnetismControll playerMagnetismController;
+
     public Sprite NorthSprite;
     public Sprite SouthSprite;
     public Magnetism indicatingMagnetism;
@@ -26,6 +29,15 @@ public class PolarityIndicator : MonoBehaviour
             {
                 polarityImage.sprite = SouthSprite;
             }
+        }
+
+        if (playerMagnetismController.forceFieldSwitchEnergy < 1.0f)
+        {
+            polarityDisabledImage.enabled = true;
+        }
+        else
+        {
+            polarityDisabledImage.enabled = false;
         }
     }
 }
