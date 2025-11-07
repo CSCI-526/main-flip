@@ -39,6 +39,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     // Set the current active checkpoint.
     public void SetActiveCheckpoint(Vector3 pos)
     {

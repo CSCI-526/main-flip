@@ -41,16 +41,20 @@ public class Magnetism : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        if (lineRenderer == null)
+        if (lineRenderer == null && !this.gameObject.name.Contains("Player"))
         {
             lineRenderer = gameObject.AddComponent<LineRenderer>();
         }
-        lineRenderer.sortingLayerName = "Foreground";
-        lineRenderer.sortingOrder = 100;
+
+        if (lineRenderer != null)
+        {
+            lineRenderer.sortingLayerName = "Foreground";
+            lineRenderer.sortingOrder = 100;
         
-        lineRenderer.positionCount = 0;
-        lineRenderer.useWorldSpace = true;
-        lineRenderer.widthMultiplier = 0.1f;
+            lineRenderer.positionCount = 0;
+            lineRenderer.useWorldSpace = true;
+            lineRenderer.widthMultiplier = 0.1f;
+        }
     }
 
     void FixedUpdate()
@@ -115,13 +119,22 @@ public class Magnetism : MonoBehaviour
                     lineRenderer.positionCount = 2;
                     lineRenderer.SetPosition(0, transform.position);
                     lineRenderer.SetPosition(1, rb.position);
-                    lineRenderer.startColor = isAttracting ? attractColor : repelColor;
-                    lineRenderer.endColor = isAttracting ? attractColor : repelColor;
-                    Debug.DrawLine(transform.position, rb.position);
-                    if (isAttracting)
-                        lineRenderer.material.color = attractColor;
-                    else
-                        lineRenderer.material.color = repelColor;
+                    
+                    Shader lineShader = Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply");
+                    Material lineMaterial = new Material(lineShader);
+                    lineRenderer.material = lineMaterial;
+
+                    Color currColor = isAttracting ? attractColor : repelColor;
+                    
+                    lineRenderer.startColor = currColor;
+                    lineRenderer.endColor = currColor;
+
+                    Gradient gradient = new Gradient();
+                    gradient.SetKeys(
+                        new GradientColorKey[] { new GradientColorKey(currColor, 0.0f), new GradientColorKey(currColor, 1.0f) },
+                        new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
+                    );
+                    lineRenderer.colorGradient = gradient;
 
                     lineRenderer.widthMultiplier = 0.001f * currentMagnetismStrength;
                 }
@@ -190,8 +203,11 @@ public class Magnetism : MonoBehaviour
     {
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         if (rb != null)
+        {
             attractedObjects.Remove(rb);
-            lineRenderer.positionCount = 0;
+            if (lineRenderer != null)
+                lineRenderer.positionCount = 0;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
