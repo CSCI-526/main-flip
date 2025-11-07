@@ -1,9 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class MainMenuUIHook : MonoBehaviour
 {
+    [Header("Scenes")]
+#if UNITY_EDITOR
+    public SceneAsset startSceneAsset;
+    public SceneAsset levelsSceneAsset;
+#endif
+    [SerializeField, HideInInspector] private string startSceneName;
+    [SerializeField, HideInInspector] private string levelsSceneName;
+
+    [Header("Buttons")]
     public Button btnStart;
     public Button btnLevels;
 
@@ -11,9 +23,8 @@ public class MainMenuUIHook : MonoBehaviour
 
     void Start()
     {
-        Wire(btnStart,  () => Load("flip level 1 (tutorial)"));
-        Wire(btnLevels, () => Load("Levels"));
-        Debug.Log("MainMenuUIHook wired");
+        Wire(btnStart,  () => Load(startSceneName));
+        Wire(btnLevels, () => Load(levelsSceneName));
     }
 
     void Wire(Button b, System.Action act)
@@ -25,7 +36,15 @@ public class MainMenuUIHook : MonoBehaviour
 
     void Load(string sceneName)
     {
-        if (SceneLoader.Instance != null) SceneLoader.Instance.LoadScene(sceneName);
-        else SceneManager.LoadScene(sceneName);
+        if (!string.IsNullOrEmpty(sceneName))
+            SceneManager.LoadScene(sceneName);
     }
+
+#if UNITY_EDITOR
+    void OnValidate()
+    {
+        startSceneName = startSceneAsset ? startSceneAsset.name : "";
+        levelsSceneName   = levelsSceneAsset   ? levelsSceneAsset.name   : "";
+    }
+#endif
 }
