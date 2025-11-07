@@ -1953,7 +1953,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 726483532}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: RespawnPlayer
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
