@@ -63536,7 +63536,7 @@ Transform:
   m_GameObject: {fileID: 1292754276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.1, y: -18.9, z: 0}
+  m_LocalPosition: {x: -53, y: 16.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71017,25 +71017,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2544921597132723700, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
+      propertyPath: levelCompleteUI
+      value: 
+      objectReference: {fileID: 1984036035}
     - target: {fileID: 2938869839459047839, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Size.x
-      value: 4
+      value: 1.5354366
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Size.y
-      value: 4
+      value: 1.5354366
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Offset.x
-      value: -16.5
+      value: -16.526218
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Offset.y
-      value: 8
+      value: 6.7677183
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73825,6 +73829,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974393763}
   m_CullTransparentMesh: 1
+--- !u!114 &1984036035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7176151201860364326, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}
+  m_PrefabInstance: {fileID: 7191206777776637043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e99eed8814434d55acd9d06db8a6d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991932704
 GameObject:
   m_ObjectHideFlags: 0
