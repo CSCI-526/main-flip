@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class M3Trigger : MonoBehaviour
 {
-    public GameObject M3;
+    [Header("Targets")]
+    public M3ZoneActivator zoneActivator;
+    public GameObject Hazard;
+    
     private bool isTriggered = false;
 
     void Reset()
@@ -15,12 +18,16 @@ public class M3Trigger : MonoBehaviour
     {
         if (isTriggered) return;
         if (!other.CompareTag("Player")) return;
-
+        
         isTriggered = true;
-
-        if (M3) M3.SetActive(true);
-
+        
+        if (Hazard) Hazard.SetActive(true);
+        
+        if (zoneActivator)
+        {
+            zoneActivator.ActivateZoneLogic();
+        }
+        
         Destroy(gameObject);
     }
 }
-

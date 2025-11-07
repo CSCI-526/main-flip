@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/flip level 1 (tutorial).unity
     guid: b71a535174fc449e8a7159f11215a536
   - enabled: 1
-    path: Assets/Scenes/flip level 2.unity
+    path: Assets/Scenes/flip level 2 Update.unity
     guid: 9bfb12c8acae8488da53381b76a6e734
   - enabled: 0
     path: Assets/Scenes/flip_gravity_tutorial.unity

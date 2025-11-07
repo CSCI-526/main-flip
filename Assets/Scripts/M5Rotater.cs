@@ -8,10 +8,14 @@ public class M5Rotater : MonoBehaviour
     public float stepDegrees = 180f;
     public float rotateDuration = 0.5f;
     public bool activeOnStart = false;
-
+    
+    [Header("Rotation Direction")]
+    public bool startClockwise = true;
+    
     private Rigidbody2D rb;
     private bool running = false;
     private Coroutine loopCoro;
+    private bool currentClockwise;
 
     void Awake()
     {
@@ -20,6 +24,7 @@ public class M5Rotater : MonoBehaviour
 
     void Start()
     {
+        currentClockwise = startClockwise;
         if (activeOnStart) Activate();
     }
 
@@ -35,7 +40,11 @@ public class M5Rotater : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(intervalSeconds);
-            yield return RotateBy(stepDegrees, rotateDuration);
+            
+            float delta = currentClockwise ? stepDegrees : -stepDegrees;
+            yield return RotateBy(delta, rotateDuration);
+            
+            currentClockwise = !currentClockwise;
         }
     }
 
@@ -54,10 +63,14 @@ public class M5Rotater : MonoBehaviour
         while (t < duration)
         {
             t += Time.fixedDeltaTime;
-            float lerped = Mathf.LerpAngle(start, end, Mathf.Clamp01(t / duration));
-            rb.MoveRotation(lerped);
+            float ratio = Mathf.Clamp01(t / duration);
+            
+            float current = start + delta * ratio;
+            
+            rb.MoveRotation(current);
             yield return new WaitForFixedUpdate();
         }
+
         rb.MoveRotation(end);
     }
 }
