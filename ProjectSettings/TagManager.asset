@@ -48,6 +48,9 @@ TagManager:
   - name: Rail
     uniqueID: 3336950753
     locked: 0
+  - name: Hazard behind wall
+    uniqueID: 2501330355
+    locked: 0
   - name: Ground and Walls
     uniqueID: 1367524581
     locked: 0

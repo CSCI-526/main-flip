@@ -5,6 +5,12 @@ public class MoveTrigger : MonoBehaviour
     public GameObject platform;
     public SmoothMovement smoothMovement;
     private bool isTriggered = false;
+    private SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Reset()
     {
@@ -17,10 +23,19 @@ public class MoveTrigger : MonoBehaviour
         if (isTriggered) return;
         if (other.CompareTag("Player"))
         {
-            isTriggered = true;
+            if (spriteRenderer) spriteRenderer.enabled = false;
+
+            // isTriggered = true;
             smoothMovement.Activate();
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
-        
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (spriteRenderer) spriteRenderer.enabled = true;
+        }
     }
 }
