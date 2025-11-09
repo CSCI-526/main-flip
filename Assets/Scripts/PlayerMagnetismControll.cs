@@ -66,6 +66,8 @@ public class PlayerMagnetismControll : MonoBehaviour
 
             forceFieldSwitchEnergy -= 1.0f;
             lastSwitchTime = Time.time;
+            if (ActionSwitchTracker.Instance != null)
+                ActionSwitchTracker.Instance.RecordMagnetFlip();
         }
     }
 
@@ -88,5 +90,7 @@ public class PlayerMagnetismControll : MonoBehaviour
         
         forceFieldSwitchEnergy -= 1.0f;
         lastSwitchTime = Time.time;
+        if (ActionSwitchTracker.Instance != null)
+            ActionSwitchTracker.Instance.RecordMagnetFlip();
     }
 }

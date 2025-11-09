@@ -72,6 +72,8 @@ public class GlobalGravity2D : MonoBehaviour
         if (!ignoreEnergy) {
             forceFieldSwitchEnergy -= 1.0f;
             lastSwitchTime = Time.time;
+            if (ActionSwitchTracker.Instance != null)
+                ActionSwitchTracker.Instance.RecordGravityFlip();
         }
     }
 
