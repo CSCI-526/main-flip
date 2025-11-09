@@ -13,6 +13,8 @@ public class RotatePivot : MonoBehaviour
     [Header("Start State")]
     public bool startPaused = false;
 
+    [Header("One-shot Mode")]
+    public bool rotateOnceOnResume = false;
 
     private Rigidbody2D rb;
     private Coroutine loopRoutine;
@@ -95,7 +97,15 @@ public class RotatePivot : MonoBehaviour
             paused = false;
             returningToStart = false;
             StopAllCoroutines();
-            loopRoutine = StartCoroutine(RunLoop());
+
+            if (rotateOnceOnResume)
+            {
+                loopRoutine = StartCoroutine(RotateOnceThenPause());
+            }
+            else
+            {
+                loopRoutine = StartCoroutine(RunLoop());
+            }
         }
     }
 
@@ -117,6 +127,20 @@ public class RotatePivot : MonoBehaviour
 
         rb.MoveRotation(angleA);
         returningToStart = false;
+    }
+
+    IEnumerator RotateOnceThenPause()
+    {
+        float current = transform.eulerAngles.z;
+        float dA = Mathf.Abs(Mathf.DeltaAngle(current, angleA));
+        float dB = Mathf.Abs(Mathf.DeltaAngle(current, angleB));
+        float target = (dA < dB) ? angleB : angleA;
+
+        yield return RotateTo(target, rotateTime);
+
+        paused = true;
+        returningToStart = false;
+        loopRoutine = null;
     }
 
     public bool IsPaused() => paused;
