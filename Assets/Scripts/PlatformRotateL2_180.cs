@@ -15,6 +15,7 @@ public class PlatformRotateL2_180 : MonoBehaviour
     private Rigidbody2D rb;
     private bool hasRotated = false;
     private bool isRotating = false;
+    public bool allowMultiple = false;
 
     void Awake()
     {
@@ -23,13 +24,14 @@ public class PlatformRotateL2_180 : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
-    public void TriggerRotateOnce()
+    public void TriggerRotate()
     {
-        if (hasRotated || isRotating) return;
-        StartCoroutine(RotateRoutine());
+        if (isRotating) return;
+        if (!allowMultiple && hasRotated) return;
+        StartCoroutine(RotateRoutine(targetAngle));
     }
 
-    IEnumerator RotateRoutine()
+    IEnumerator RotateRoutine(float delta)
     {
         isRotating = true;
 
@@ -37,41 +39,39 @@ public class PlatformRotateL2_180 : MonoBehaviour
         if (disableChildRigidbodiesDuringRotate)
         {
             childRBs = GetComponentsInChildren<Rigidbody2D>();
-            foreach (var r in childRBs)
-            {
-                if (!r || r == rb) continue;
-                r.simulated = false;
-            }
+            foreach (var r in childRBs) if (r && r != rb) r.simulated = false;
         }
 
         float from = rb.rotation;
-        float to = from + targetAngle;
-
+        float to = from + delta;
         float t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            float k = Mathf.Clamp01(t / duration);
-            float e = ease.Evaluate(k);
-            float z = Mathf.LerpAngle(from, to, e);
-            rb.MoveRotation(z);
-            yield return null;
-        }
 
-        rb.MoveRotation(to);
+        if (duration <= 0f)
+        {
+            rb.MoveRotation(to);
+        }
+        else
+        {
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                float k = Mathf.Clamp01(t / duration);
+                float e = ease.Evaluate(k);
+                float z = Mathf.LerpAngle(from, to, e);
+                rb.MoveRotation(z);
+                yield return null;
+            }
+            rb.MoveRotation(to);
+        }
 
         if (childRBs != null)
-        {
-            foreach (var r in childRBs)
-            {
-                if (!r || r == rb) continue;
-                r.simulated = true;
-            }
-        }
+            foreach (var r in childRBs) if (r && r != rb) r.simulated = true;
 
-        hasRotated = true;
+        if (!allowMultiple) hasRotated = true;
         isRotating = false;
+
     }
+
 
 }
 
