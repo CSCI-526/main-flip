@@ -26,7 +26,7 @@ public class ActionSwitchTracker : MonoBehaviour
     {
         if (!File.Exists(csvPath))
         {
-            File.WriteAllText(csvPath, "player_id,scene,N,switch_count,action_switch_rate,sequence\n");
+            File.WriteAllText(csvPath, "scene,N,switch_count,action_switch_rate,sequence\n");
         }
     }
 
@@ -47,7 +47,7 @@ public class ActionSwitchTracker : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name;
         string sequenceStr = string.Join("|", seq);
 
-        string line = $"{playerId},{scene},{N},{switches},{rate},{sequenceStr}\n";
+        string line = $"{scene},{N},{switches},{rate},{sequenceStr}\n";
         File.AppendAllText(csvPath, line);
 
         seq.Clear();
