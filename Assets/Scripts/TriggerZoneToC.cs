@@ -9,5 +9,7 @@ public class TriggerZoneToC : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         if (PivottoStart) PivottoStart.PauseRotation(false);
+
+        Destroy (gameObject);
     }
 }
