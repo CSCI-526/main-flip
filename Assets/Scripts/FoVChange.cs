@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class FoVChange : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class FoVChange : MonoBehaviour
     private float newSize;
     private float originalSize;
 
+    public bool isChangingFoV = false;
+
     void Start()
     {
         originalSize = cam.orthographicSize;
@@ -17,6 +21,13 @@ public class FoVChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        FoVChange[] foVChanges = other.GetComponents<FoVChange>();
+        foreach (FoVChange foVChange in foVChanges)
+        {
+            foVChange.isChangingFoV = false;
+        }
+
+        isChangingFoV = true;
         if (other.transform == target)
         {
             newSize = inAreaSize;
@@ -26,6 +37,7 @@ public class FoVChange : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        isChangingFoV = true;
         if (other.transform == target)
         {
             newSize = originalSize;
@@ -41,6 +53,7 @@ public class FoVChange : MonoBehaviour
             if (Mathf.Abs(cam.orthographicSize - newSize) < 0.01f)
             {
                 cam.orthographicSize = newSize;
+                isChangingFoV = false;
             }
         }
     }
