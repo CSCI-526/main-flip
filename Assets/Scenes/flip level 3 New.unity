@@ -63955,7 +63955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3285765912694275151, guid: 58d4448b6b2a842f9bfaf09816da77fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3285765912694275151, guid: 58d4448b6b2a842f9bfaf09816da77fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -77022,6 +77022,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -90, y: -28, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -73, y: -28, z: 0}
     second:
       serializedVersion: 2
@@ -85156,15 +85166,15 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1598
+  - m_RefCount: 1599
     m_Data: {fileID: 11400000, guid: 0fc12e08bb1fe4fb59c2529b659e4ba5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1598
+  - m_RefCount: 1599
     m_Data: {fileID: 7482667652216324306, guid: e816d4736b76143698b0ee5fb0512058, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1598
+  - m_RefCount: 1599
     m_Data:
       e00: 1
       e01: 0
@@ -85183,7 +85193,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1598
+  - m_RefCount: 1599
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -85464,12 +85474,8 @@ CompositeCollider2D:
         Y: -410000000
       - X: -1050000000
         Y: -280000000
-      - X: -900000000
-        Y: -280000000
-      - X: -900000000
-        Y: -270000000
       - X: -890000000
-        Y: -270000000
+        Y: -280000000
       - X: -890000000
         Y: -220000000
       - X: -770000000
@@ -85728,9 +85734,7 @@ CompositeCollider2D:
       - {x: -105.99997, y: -41}
       - {x: -105, y: -40.999973}
       - {x: -104.99997, y: -28}
-      - {x: -90, y: -27.999971}
-      - {x: -89.99997, y: -27}
-      - {x: -89, y: -26.999971}
+      - {x: -89, y: -27.999971}
       - {x: -88.99997, y: -22}
       - {x: -77, y: -21.999971}
       - {x: -77.00003, y: -17}

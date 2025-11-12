@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     [Header("Respawn Point")]
     public Transform defaultSpawn;
     private Vector3 currentRespawnPos;
-    private bool isRespawning = false;
+    public bool isRespawning = false;
 
     [Header("Respawn Freeze")]
     [SerializeField] private float freezeSeconds = 1f;
