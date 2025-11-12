@@ -104,24 +104,6 @@ public class LevelAnalytics : MonoBehaviour
         lastTriggerTime.Clear();
     }
 
-    private IEnumerator PostToGoogleForm(string trigger, float responseSeconds, string scene)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField(entryTriggerId, trigger);
-        form.AddField(entryResponseTimeId, responseSeconds.ToString("F2"));
-        form.AddField(entrySceneId, scene);
-
-        using (UnityWebRequest www = UnityWebRequest.Post(googleFormUrl, form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.Success)
-                Debug.Log("[Analytics→Forms] Uploaded successfully.");
-            else
-                Debug.LogWarning($"[Analytics→Forms] Upload failed: {www.result}, error: {www.error}");
-        }
-    }
-
     IEnumerator UploadMetric(string lastTriggerId, float response, string sceneName)
     {
         string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse";
