@@ -419,6 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109302884}
   - component: {fileID: 109302883}
+  - component: {fileID: 109302885}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -453,6 +454,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &109302885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109302882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118661419
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +517,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 5
+  isChangingFoV: 0
 --- !u!114 &118661422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +736,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &141871158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51574,6 +51590,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &252388879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52131,6 +52149,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &309557646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53311,6 +53331,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &407512688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54577,6 +54599,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &458967443
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55438,6 +55462,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 10
   changeSpeed: 2
+  isChangingFoV: 0
 --- !u!4 &548633274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2150630192346296121, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
@@ -57208,6 +57233,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &748417674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59786,6 +59813,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 5
+  isChangingFoV: 0
 --- !u!114 &919245562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60333,6 +60361,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &938004403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62942,6 +62972,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 20
   changeSpeed: 2
+  isChangingFoV: 0
 --- !u!61 &1202897871
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63788,6 +63819,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1255703707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64491,6 +64524,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1292754283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64759,6 +64794,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!50 &1324023415
 Rigidbody2D:
   serializedVersion: 5
@@ -65361,6 +65398,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!50 &1364996671
 Rigidbody2D:
   serializedVersion: 5
@@ -66743,6 +66782,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1484401240
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -67209,6 +67250,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1510142289
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68095,6 +68138,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1697372224
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86106,6 +86151,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1779123100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86724,6 +86771,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!50 &1827466478
 Rigidbody2D:
   serializedVersion: 5
@@ -90475,6 +90524,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1901218199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90696,6 +90747,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 3
   changeSpeed: 2
+  isChangingFoV: 0
 --- !u!114 &1905736697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91394,6 +91446,7 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 5
+  isChangingFoV: 0
 --- !u!114 &1933394413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92568,6 +92621,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!50 &1991932710
 Rigidbody2D:
   serializedVersion: 5
