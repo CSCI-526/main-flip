@@ -701,6 +701,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!212 &110852966
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1645,7 +1647,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4745098, g: 0.6313726, b: 0.84705883, a: 1}
@@ -3156,6 +3158,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!212 &585726201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3345,7 +3349,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.90588236, g: 0.4117647, b: 0.3882353, a: 1}
@@ -3665,6 +3669,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!61 &777247832
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3849,7 +3855,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.4745098, g: 0.6313726, b: 0.84705883, a: 1}
@@ -4185,7 +4191,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.47450984, g: 0.6313726, b: 0.8470589, a: 0.5019608}
@@ -4244,6 +4250,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!1 &901995524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,6 +4305,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!114 &901995527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4415,7 +4425,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.47450984, g: 0.6313726, b: 0.8470589, a: 0.5019608}
@@ -5255,6 +5265,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!212 &1115943911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5689,7 +5701,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.4745098, g: 0.6313726, b: 0.84705883, a: 1}
@@ -5735,6 +5747,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!114 &1292754283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5999,6 +6013,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!114 &1358003389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6117,7 +6133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.90588236, g: 0.4117647, b: 0.3882353, a: 0.5019608}
@@ -6916,6 +6932,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!212 &1751999592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7065,7 +7083,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1367524581
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -10093,7 +10111,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1374395721
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -10307,7 +10325,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4745098, g: 0.6313726, b: 0.84705883, a: 1}
@@ -10495,6 +10513,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!114 &1910307448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10613,7 +10633,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.90588236, g: 0.4117647, b: 0.3882353, a: 0.5019608}
@@ -11232,6 +11252,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 2800000, guid: e8ef2690f2acb6e4fa6221b9bce9de93, type: 3}
+  dashesPerUnit: 5
 --- !u!114 &2004904968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11350,7 +11372,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.47450984, g: 0.6313726, b: 0.8470589, a: 0.5019608}
@@ -11393,7 +11415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2022442066
 Transform:
   m_ObjectHideFlags: 0

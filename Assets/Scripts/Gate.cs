@@ -27,6 +27,8 @@ public class Gate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (ActionSwitchTracker.Instance != null)
+                ActionSwitchTracker.Instance.SaveAndReset();
             if (skipLevelCompleteUI)
                 {
                     int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;

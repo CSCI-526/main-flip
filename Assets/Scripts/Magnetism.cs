@@ -34,26 +34,107 @@ public class Magnetism : MonoBehaviour
     private List<Rigidbody2D> attractedObjects = new List<Rigidbody2D>();
     private List<GameObject> collidingMagnets = new List<GameObject>();
 
+    private GameObject connctionLine, arrowLineA, arrowLineB, arrowArrowA, arrowArrowB;
+    private LineRenderer connectionLineRenderer, arrowLineRendererA, arrowLineRendererB;
+    private SpriteRenderer arrowArrowRendererA, arrowArrowRendererB;
     private Color attractColor = Color.green;
     private Color repelColor = Color.red;
-    private LineRenderer lineRenderer;
+    public Texture2D dashTexture;
+    public float dashesPerUnit = 5f;
 
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        if (lineRenderer == null && !this.gameObject.name.Contains("Player"))
+        connctionLine = new GameObject("ConnectionLine");
+        arrowLineA = new GameObject("ArrowLineA");
+        arrowLineB = new GameObject("ArrowLineB");
+        arrowArrowA = new GameObject("ArrowArrowA");
+        arrowArrowB = new GameObject("ArrowArrowB");
+        connctionLine.transform.parent = this.transform;
+        arrowLineA.transform.parent = this.transform;
+        arrowLineB.transform.parent = this.transform;
+        arrowArrowA.transform.parent = this.transform;
+        arrowArrowB.transform.parent = this.transform;
+
+        connectionLineRenderer = GetComponent<LineRenderer>();
+        if (connectionLineRenderer == null && !this.gameObject.name.Contains("Player"))
         {
-            lineRenderer = gameObject.AddComponent<LineRenderer>();
+            connectionLineRenderer = connctionLine.AddComponent<LineRenderer>();
         }
 
-        if (lineRenderer != null)
+        if (connectionLineRenderer != null)
         {
-            lineRenderer.sortingLayerName = "Foreground";
-            lineRenderer.sortingOrder = 100;
+            connectionLineRenderer.sortingLayerName = "Foreground";
+            connectionLineRenderer.sortingOrder = 100;
         
-            lineRenderer.positionCount = 0;
-            lineRenderer.useWorldSpace = true;
-            lineRenderer.widthMultiplier = 0.1f;
+            connectionLineRenderer.positionCount = 0;
+            connectionLineRenderer.useWorldSpace = true;
+            connectionLineRenderer.widthMultiplier = 0.1f;
+
+            Shader lineShader = Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply");
+            Material lineMaterial = new Material(lineShader);
+            if (dashTexture != null)
+            {
+                lineMaterial.mainTexture = dashTexture;
+            }
+            connectionLineRenderer.material = lineMaterial;
+        }
+
+        arrowLineRendererA = GetComponent<LineRenderer>();
+        if (arrowLineRendererA == null && !this.gameObject.name.Contains("Player"))
+        {
+            arrowLineRendererA = arrowLineA.AddComponent<LineRenderer>();
+        }
+        if (arrowLineRendererA != null)
+        {
+            arrowLineRendererA.sortingLayerName = "Foreground";
+            arrowLineRendererA.sortingOrder = 100;
+        
+            arrowLineRendererA.positionCount = 0;
+            arrowLineRendererA.useWorldSpace = true;
+            arrowLineRendererA.widthMultiplier = 0.1f;
+
+            Shader lineShader = Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply");
+            Material lineMaterial = new Material(lineShader);
+            arrowLineRendererA.material = lineMaterial;
+        }
+        
+        arrowLineRendererB = GetComponent<LineRenderer>();
+        if (arrowLineRendererB == null && !this.gameObject.name.Contains("Player"))
+        {
+            arrowLineRendererB = arrowLineB.AddComponent<LineRenderer>();
+        }
+        if (arrowLineRendererB != null)
+        {
+            arrowLineRendererB.sortingLayerName = "Foreground";
+            arrowLineRendererB.sortingOrder = 100;
+        
+            arrowLineRendererB.positionCount = 0;
+            arrowLineRendererB.useWorldSpace = true;
+            arrowLineRendererB.widthMultiplier = 0.1f;
+
+            Shader lineShader = Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply");
+            Material lineMaterial = new Material(lineShader);
+            arrowLineRendererB.material = lineMaterial;
+        }
+
+        if (arrowArrowRendererA == null && !this.gameObject.name.Contains("Player"))
+        {
+            arrowArrowRendererA = arrowArrowA.AddComponent<SpriteRenderer>();
+        }
+        if (arrowArrowRendererA != null)
+        {
+            arrowArrowRendererA.sortingLayerName = "Foreground";
+            arrowArrowRendererA.sortingOrder = 100;
+        }
+
+        if (arrowArrowRendererB == null && !this.gameObject.name.Contains("Player"))
+        {
+            arrowArrowRendererB = arrowArrowB.AddComponent<SpriteRenderer>();
+        }
+        if (arrowArrowRendererB != null)
+        {
+            arrowArrowRendererB.sortingLayerName = "Foreground";
+            arrowArrowRendererB.sortingOrder = 100;
         }
     }
 
@@ -114,30 +195,109 @@ public class Magnetism : MonoBehaviour
                     rb.AddForce(direction.normalized * currentMagnetismStrength, ForceMode2D.Force);
                 }
 
-                if (lineRenderer != null)
-                {
-                    lineRenderer.positionCount = 2;
-                    lineRenderer.SetPosition(0, transform.position);
-                    lineRenderer.SetPosition(1, rb.position);
-                    
-                    Shader lineShader = Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply");
-                    Material lineMaterial = new Material(lineShader);
-                    lineRenderer.material = lineMaterial;
+                drawConnectionLine(rb, isAttracting, currentMagnetismStrength, distance);
+            }
+        }
+    }
 
-                    Color currColor = isAttracting ? attractColor : repelColor;
-                    
-                    lineRenderer.startColor = currColor;
-                    lineRenderer.endColor = currColor;
+    void drawConnectionLine(Rigidbody2D rb, bool isAttracting, float currentMagnetismStrength, float distance)
+    {
+        if (connectionLineRenderer != null)
+        {
+            connectionLineRenderer.positionCount = 2;
+            connectionLineRenderer.SetPosition(0, transform.position);
+            connectionLineRenderer.SetPosition(1, rb.position);
 
-                    Gradient gradient = new Gradient();
-                    gradient.SetKeys(
-                        new GradientColorKey[] { new GradientColorKey(currColor, 0.0f), new GradientColorKey(currColor, 1.0f) },
-                        new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
-                    );
-                    lineRenderer.colorGradient = gradient;
+            Color currColor = isAttracting ? attractColor : repelColor;
+            connectionLineRenderer.startColor = currColor;
+            connectionLineRenderer.endColor = currColor;
 
-                    lineRenderer.widthMultiplier = 0.001f * currentMagnetismStrength;
-                }
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(currColor, 0.0f), new GradientColorKey(currColor, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
+            );
+            connectionLineRenderer.colorGradient = gradient;
+
+            if (dashTexture != null)
+            {
+                connectionLineRenderer.material.mainTextureScale = new Vector2(distance * dashesPerUnit, 1f);
+            }
+
+            connectionLineRenderer.widthMultiplier = 0.001f * currentMagnetismStrength;
+        }
+
+        if (arrowLineRendererA != null)
+        {
+            arrowLineRendererA.positionCount = 2;
+            Vector2 direction = (rb.position - (Vector2)transform.position).normalized;
+            Vector2 startPos = transform.position;
+            Vector2 endPos = startPos;
+            if (isAttracting)
+                endPos += direction * (distance / 3.0f);
+            else
+                endPos -= direction * (distance / 3.0f);
+            arrowLineRendererA.SetPosition(0, startPos);
+            arrowLineRendererA.SetPosition(1, endPos);
+
+            Color currColor = isAttracting ? attractColor : repelColor;
+            arrowLineRendererA.startColor = currColor;
+            arrowLineRendererA.endColor = currColor;
+
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(currColor, 0.0f), new GradientColorKey(currColor, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
+            );
+            arrowLineRendererA.colorGradient = gradient;
+            arrowLineRendererA.widthMultiplier = 0.001f * currentMagnetismStrength;
+
+            if (arrowArrowRendererA != null)
+            {
+                Sprite loadedSprite = Resources.Load<Sprite>("Triangle");
+                arrowArrowRendererA.sprite = loadedSprite;
+                arrowArrowRendererA.transform.position = endPos;
+                
+                float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion targetWorldRotation = Quaternion.Euler(0f, 0f, targetAngle);
+                Quaternion parentInverseRotation = Quaternion.Inverse(this.transform.rotation);
+                Quaternion localRotation = parentInverseRotation * targetWorldRotation;
+                Quaternion spriteCorrection = Quaternion.Euler(0f, 0f, -90f);
+                arrowArrowRendererA.transform.localRotation = localRotation * spriteCorrection;
+
+                arrowArrowRendererA.transform.localScale = new Vector3(0.001f * currentMagnetismStrength, 0.002f * currentMagnetismStrength, 1f);
+                arrowArrowRendererA.color = currColor;
+            }
+        }
+
+        if (arrowLineRendererB != null)
+        {
+            arrowLineRendererB.positionCount = 2;
+            Vector2 direction = (rb.position - (Vector2)transform.position).normalized;
+            Vector2 startPos = rb.position;
+            Vector2 endPos = startPos;
+            if (isAttracting)
+                endPos -= direction * (distance / 3.0f);
+            else
+                endPos += direction * (distance / 3.0f);
+            arrowLineRendererB.SetPosition(0, startPos);
+            arrowLineRendererB.SetPosition(1, endPos);
+
+            Color currColor = isAttracting ? attractColor : repelColor;
+            arrowLineRendererB.startColor = currColor;
+            arrowLineRendererB.endColor = currColor;
+
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(currColor, 0.0f), new GradientColorKey(currColor, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) }
+            );
+            arrowLineRendererB.colorGradient = gradient;
+            arrowLineRendererB.widthMultiplier = 0.001f * currentMagnetismStrength;
+
+            if (arrowArrowRendererB != null)
+            {
+                arrowArrowRendererB.transform.position = endPos;
             }
         }
     }
@@ -205,8 +365,12 @@ public class Magnetism : MonoBehaviour
         if (rb != null)
         {
             attractedObjects.Remove(rb);
-            if (lineRenderer != null)
-                lineRenderer.positionCount = 0;
+            if (connectionLineRenderer != null)
+                connectionLineRenderer.positionCount = 0;
+            if (arrowLineRendererA != null)
+                arrowLineRendererA.positionCount = 0;
+            if (arrowLineRendererB != null)
+                arrowLineRendererB.positionCount = 0;
         }
     }
 
