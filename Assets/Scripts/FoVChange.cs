@@ -20,6 +20,7 @@ public class FoVChange : MonoBehaviour
         if (other.transform == target)
         {
             newSize = inAreaSize;
+            Debug.Log("Fov Change to " + newSize);
         }
     }
 
@@ -35,6 +36,7 @@ public class FoVChange : MonoBehaviour
     {
         if (cam.orthographicSize != newSize)
         {
+            Debug.Log(this.gameObject.name + " Updating Fov from " + cam.orthographicSize + " to " + newSize);
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newSize, Time.deltaTime * changeSpeed);
             if (Mathf.Abs(cam.orthographicSize - newSize) < 0.01f)
             {
