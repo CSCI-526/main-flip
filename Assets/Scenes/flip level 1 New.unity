@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: -6, y: 0, z: 0}
+  targetOffset: {x: 6, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!61 &64060519
@@ -116018,7 +116018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: -6, y: 0, z: 0}
+  targetOffset: {x: 6.1, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &514182233
@@ -116784,7 +116784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: 6, y: 0, z: 0}
+  targetOffset: {x: -6.1, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &540675210
@@ -116962,7 +116962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: 6, y: 0, z: 0}
+  targetOffset: {x: -6.1, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &558751954
@@ -119032,7 +119032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: -6, y: 0, z: 0}
+  targetOffset: {x: 6, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &699159538
@@ -123265,7 +123265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: -6, y: 0, z: 0}
+  targetOffset: {x: 6.1, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &1090863539
@@ -126963,7 +126963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0ba305b5bf6c114fa2cccd6c512cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetOffset: {x: -6, y: 0, z: 0}
+  targetOffset: {x: 6, y: 0, z: 0}
   isActive: 0
   speed: 10
 --- !u!50 &1543417121
