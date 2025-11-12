@@ -377,6 +377,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &7466119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +938,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!4 &37195789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3309042517225708553, guid: e12652b4af6af480fa56ad70d1c858ae, type: 3}
@@ -1497,6 +1501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec95c75d9f948416ab48940f959cd6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  googleFormUrl: https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse
+  entryTriggerId: entry.108756292
+  entryResponseTimeId: entry.385238708
+  entrySceneId: entry.1061002081
+  alsoWriteCsv: 0
 --- !u!4 &109302884
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,6 +1533,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  googleFormUrl: https://docs.google.com/forms/u/1/d/e/1FAIpQLSfrklA_gmW2PxyY0F2whtSaFZVM5cg_jTHkmLNoZivKzaVSjw/formResponse
+  entryActionSwitchRate: entry.1249336548
+  entryPlayerIdAlias: entry.1290620746
+  entryScene: entry.1425215553
 --- !u!1 &115124135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2270,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &161420267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29781,6 +29796,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!114 &262912931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30190,6 +30207,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &291377587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30527,6 +30546,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &314921682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32485,6 +32506,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!1 &714611387
 GameObject:
   m_ObjectHideFlags: 0
@@ -32754,6 +32777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gate: {fileID: 1923727590}
   defaultSpawn: {fileID: 1895153007}
+  isRespawning: 0
   freezeSeconds: 1
 --- !u!4 &726483533
 Transform:
@@ -33364,6 +33388,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &771465810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34271,6 +34297,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!114 &1120639535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34788,6 +34816,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 20
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!1 &1215690424
 GameObject:
   m_ObjectHideFlags: 0
@@ -35595,6 +35625,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1292754283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36004,6 +36036,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!1 &1305351999
 GameObject:
   m_ObjectHideFlags: 0
@@ -37304,6 +37338,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 15
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!114 &1558844721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37944,6 +37980,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1648957240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42777,6 +42815,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!1 &1865198107
 GameObject:
   m_ObjectHideFlags: 0
@@ -43093,6 +43133,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1874979656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44572,6 +44614,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 20
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!114 &1933394413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45190,6 +45234,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1999386394
 MonoBehaviour:
   m_ObjectHideFlags: 0
