@@ -1,13 +1,23 @@
-using System.IO;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class LevelAnalytics : MonoBehaviour
 {
     public static LevelAnalytics Instance;
 
+    [Header("Google Forms")]
+    [SerializeField] private string googleFormUrl =
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse";
+
+    [SerializeField] private string entryTriggerId      = "entry.108756292"; 
+    [SerializeField] private string entryResponseTimeId = "entry.385238708"; 
+    [SerializeField] private string entrySceneId        = "entry.1061002081"; 
+
+    [SerializeField] private bool alsoWriteCsv = false;
     private string csvPath;
 
     private readonly Dictionary<string, float> lastTriggerTime = new();
@@ -19,13 +29,8 @@ public class LevelAnalytics : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        csvPath = Path.Combine(Application.dataPath, "AnalyticsData.csv");
-        EnsureHeader();
-    }
-
-    private void EnsureHeader()
-    {
-        if (!File.Exists(csvPath))
+        csvPath = Path.Combine(Application.persistentDataPath, "AnalyticsData.csv");
+        if (alsoWriteCsv && !File.Exists(csvPath))
         {
             File.WriteAllText(csvPath, "Trigger,ResponseTimeSec,Scene\n");
         }
@@ -41,6 +46,14 @@ public class LevelAnalytics : MonoBehaviour
 
     public void MarkGateReached()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "flip level 2")
+        {
+            Debug.Log("[Analytics] Skipped metric upload — this is the second scene.");
+            return;
+        }
+
         if (string.IsNullOrEmpty(lastTriggerId) || !lastTriggerTime.ContainsKey(lastTriggerId))
         {
             Debug.Log("[Analytics] Gate reached but no trigger was recorded.");
@@ -49,18 +62,74 @@ public class LevelAnalytics : MonoBehaviour
 
         float start = lastTriggerTime[lastTriggerId];
         float response = Mathf.Max(0f, Time.time - start);
+        string sceneName = currentScene.name;
 
-        string sceneName = SceneManager.GetActiveScene().name;
+        if (alsoWriteCsv)
+        {
+            string csvLine = $"{lastTriggerId},{response:F2},{sceneName}\n";
+            File.AppendAllText(csvPath, csvLine);
+            Debug.Log($"[Analytics→CSV] {csvLine.Trim()} → {csvPath}");
+        }
 
-        string line = $"{lastTriggerId},{response:F2},{sceneName}\n";
-        File.AppendAllText(csvPath, line);
+        StartCoroutine(UploadMetric(lastTriggerId, response, sceneName));
+    }
+    
+    public void MarkPlatformReached()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        Debug.Log($"[Analytics] Logged: {line.Trim()} → {csvPath}");
+        if (string.IsNullOrEmpty(lastTriggerId) || !lastTriggerTime.ContainsKey(lastTriggerId))
+        {
+            Debug.Log("[Analytics] Gate reached but no trigger was recorded.");
+            return;
+        }
+
+        float start = lastTriggerTime[lastTriggerId];
+        float response = Mathf.Max(0f, Time.time - start);
+        string sceneName = currentScene.name;
+
+        if (alsoWriteCsv)
+        {
+            string csvLine = $"{lastTriggerId},{response:F2},{sceneName}\n";
+            File.AppendAllText(csvPath, csvLine);
+            Debug.Log($"[Analytics→CSV] {csvLine.Trim()} → {csvPath}");
+        }
+
+        StartCoroutine(UploadMetric(lastTriggerId, response, sceneName));
     }
 
     public void ResetForLevel()
     {
         lastTriggerId = null;
         lastTriggerTime.Clear();
+    }
+
+    private IEnumerator PostToGoogleForm(string trigger, float responseSeconds, string scene)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField(entryTriggerId, trigger);
+        form.AddField(entryResponseTimeId, responseSeconds.ToString("F2"));
+        form.AddField(entrySceneId, scene);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(googleFormUrl, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success)
+                Debug.Log("[Analytics→Forms] Uploaded successfully.");
+            else
+                Debug.LogWarning($"[Analytics→Forms] Upload failed: {www.result}, error: {www.error}");
+        }
+    }
+
+    IEnumerator UploadMetric(string lastTriggerId, float response, string sceneName)
+    {
+        string URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse";
+        WWWForm form = new WWWForm();
+        form.AddField("entry.108756292", lastTriggerId.ToString());
+        form.AddField("entry.385238708", response.ToString());
+        form.AddField("entry.1061002081", sceneName.ToString());
+        UnityWebRequest www = UnityWebRequest.Post(URL, form);
+        yield return www.SendWebRequest();
     }
 }
