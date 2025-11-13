@@ -114283,7 +114283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 24
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -122024,7 +122024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 25
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -124868,7 +124868,7 @@ Transform:
   m_GameObject: {fileID: 1292754276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.1, y: -8.1, z: 0}
+  m_LocalPosition: {x: -124.47, y: 6.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

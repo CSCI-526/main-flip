@@ -2541,6 +2541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gate: {fileID: 875619330}
   defaultSpawn: {fileID: 1732479285}
+  isRespawning: 0
   freezeSeconds: 1
 --- !u!4 &726483533
 Transform:
@@ -3244,7 +3245,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1367524581
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9803922, g: 0.8862746, b: 0.47058827, a: 1}
@@ -3908,7 +3909,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 32019357
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 455776aeb2d764634a5d0eb05351559a, type: 3}
   m_Color: {r: 0.4745098, g: 0.6313726, b: 0.84705883, a: 1}
@@ -3954,6 +3955,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1292754283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4276,6 +4279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1335855665}
   - component: {fileID: 1335855664}
+  - component: {fileID: 1335855666}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4295,6 +4299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec95c75d9f948416ab48940f959cd6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  googleFormUrl: https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse
+  entryTriggerId: entry.108756292
+  entryResponseTimeId: entry.385238708
+  entrySceneId: entry.1061002081
+  alsoWriteCsv: 0
 --- !u!4 &1335855665
 Transform:
   m_ObjectHideFlags: 0
@@ -4310,6 +4319,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335855666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335855663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444916586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,7 +5420,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1367524581
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9333334, g: 0.67058825, b: 0.32156864, a: 1}
@@ -5491,7 +5512,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1367524581
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8754,7 +8775,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1374395721
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
