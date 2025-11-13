@@ -68,7 +68,18 @@ public class LevelsUIHook : MonoBehaviour
         b.onClick.RemoveAllListeners();
         b.onClick.AddListener(() => {
             Debug.Log("CLICK -> " + scene);
-            SceneManager.LoadScene(scene);
+            
+            // FIX: Call the custom SceneLoader to ensure AnalyticsManager.InitializeNewSession() runs.
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.LoadScene(scene);
+            }
+            else
+            {
+                // Fallback (only runs if SceneLoader is missing, but skips analytics setup)
+                Debug.LogError("SceneLoader not found! Falling back to raw SceneManager.");
+                SceneManager.LoadScene(scene); 
+            }
         });
     }
 

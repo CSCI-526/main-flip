@@ -114283,7 +114283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 24
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -122024,7 +122024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 25
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -125432,10 +125432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  googleFormUrl: https://docs.google.com/forms/u/1/d/e/1FAIpQLSfrklA_gmW2PxyY0F2whtSaFZVM5cg_jTHkmLNoZivKzaVSjw/formResponse
-  entryActionSwitchRate: entry.1249336548
-  entryPlayerIdAlias: entry.1290620746
-  entryScene: entry.1425215553
 --- !u!1 &1353730330
 GameObject:
   m_ObjectHideFlags: 0

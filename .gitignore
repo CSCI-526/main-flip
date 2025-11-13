@@ -83,3 +83,7 @@ crashlytics-build.properties
 **/.DS_Store
 
 ./build
+
+# Google service account key
+credentials.json
+
