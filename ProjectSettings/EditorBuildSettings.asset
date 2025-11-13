@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/flip level 2 Update.unity
     guid: 9bfb12c8acae8488da53381b76a6e734
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/flip level 3.unity
     guid: 5590323bafba9450f9a78bb89b69f239
   - enabled: 0
@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/flip magnetic tutorial.unity
     guid: 107fd03b474ae1e4a899b6497c17164e
+  - enabled: 1
+    path: Assets/Scenes/flip level 3 New.unity
+    guid: 7ad6be718b16c83448f3ee570250be8c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
