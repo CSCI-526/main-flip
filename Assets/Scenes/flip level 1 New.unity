@@ -184,6 +184,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &6498766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -904,6 +906,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &128024115
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -1124,6 +1128,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &141055262
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111801,6 +111807,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &224278441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114277,6 +114285,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 24
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!114 &424097050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116355,6 +116365,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &515824259
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -117514,6 +117526,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &588751767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118207,6 +118221,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &640889129
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -118773,6 +118789,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &675093002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119485,6 +119503,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &725613036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119644,6 +119664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gate: {fileID: 1923727590}
   defaultSpawn: {fileID: 656207446}
+  isRespawning: 0
   freezeSeconds: 1
 --- !u!4 &726483533
 Transform:
@@ -119843,6 +119864,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &771465802
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -120269,6 +120292,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &780443737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120907,6 +120932,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &843253460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -121467,6 +121494,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &954964076
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -121997,6 +122026,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 25
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &993988981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123132,6 +123163,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1088676613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123827,6 +123860,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1173038050
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -124833,7 +124868,7 @@ Transform:
   m_GameObject: {fileID: 1292754276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -124.47, y: 6.68, z: 0}
+  m_LocalPosition: {x: 8.1, y: -8.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124857,6 +124892,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!114 &1292754283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125363,6 +125400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec95c75d9f948416ab48940f959cd6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  googleFormUrl: https://docs.google.com/forms/u/0/d/e/1FAIpQLSekWv6SHlgGQzyTCn161UAmmqfBzhG71c1jLxpzo_vVMgh7kg/formResponse
+  entryTriggerId: entry.108756292
+  entryResponseTimeId: entry.385238708
+  entrySceneId: entry.1061002081
+  alsoWriteCsv: 0
 --- !u!4 &1335855665
 Transform:
   m_ObjectHideFlags: 0
@@ -126300,6 +126342,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1485442589
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -127172,6 +127216,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &1548396558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127869,6 +127915,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1676824565
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -145142,6 +145190,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1776612954
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -148022,6 +148072,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &1938030099
 SliderJoint2D:
   m_ObjectHideFlags: 0
@@ -148574,6 +148626,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &1989185889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149070,6 +149124,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!61 &1999322561
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149263,6 +149319,8 @@ MonoBehaviour:
   target: {fileID: 1292754280}
   inAreaSize: 12
   changeSpeed: 2
+  isChangingFoV: 0
+  isChangingForLeaving: 0
 --- !u!61 &2029215843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150423,6 +150481,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  dashTexture: {fileID: 0}
+  dashesPerUnit: 5
 --- !u!234 &2134653182
 SliderJoint2D:
   m_ObjectHideFlags: 0
