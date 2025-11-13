@@ -114283,7 +114283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 24
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -122024,7 +122024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1997125540}
   target: {fileID: 1292754280}
-  inAreaSize: 25
+  inAreaSize: 13
   changeSpeed: 2
   isChangingFoV: 0
   isChangingForLeaving: 0
@@ -124868,7 +124868,7 @@ Transform:
   m_GameObject: {fileID: 1292754276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -124.47, y: 6.68, z: 0}
+  m_LocalPosition: {x: -124.42, y: 6.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125432,10 +125432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  googleFormUrl: https://docs.google.com/forms/u/1/d/e/1FAIpQLSfrklA_gmW2PxyY0F2whtSaFZVM5cg_jTHkmLNoZivKzaVSjw/formResponse
-  entryActionSwitchRate: entry.1249336548
-  entryPlayerIdAlias: entry.1290620746
-  entryScene: entry.1425215553
 --- !u!1 &1353730330
 GameObject:
   m_ObjectHideFlags: 0
