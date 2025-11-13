@@ -8,12 +8,20 @@ public class HelpUI : MonoBehaviour
     [SerializeField] private CanvasGroup group;
     [SerializeField] private Button backButton;
 
+    [Header("Pages")]
+    [SerializeField] private GameObject controlsPage;
+    [SerializeField] private GameObject basicsPage;
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button prevButton;
+
     [Header("Settings")]
     [SerializeField] private float fadeDuration = 0.15f;
     [SerializeField] private bool hideOnAwake = true;
 
     private bool isShowing = false;
     public bool IsShowing => isShowing;
+
+    private int pageIndex = 0;
 
     void Reset()
     {
@@ -26,6 +34,14 @@ public class HelpUI : MonoBehaviour
 
         if (backButton)
             backButton.onClick.AddListener(Hide);
+
+        if (nextButton)
+            nextButton.onClick.AddListener(NextPage);
+
+        if (prevButton)
+            prevButton.onClick.AddListener(PrevPage);
+
+        SetPage(0);
 
         if (hideOnAwake)
             HideImmediate();
@@ -44,6 +60,8 @@ public class HelpUI : MonoBehaviour
         if (isShowing) return;
 
         isShowing = true;
+
+        SetPage(0);
 
         gameObject.SetActive(true);
         StartCoroutine(FadeCanvas(1f));
@@ -100,5 +118,29 @@ public class HelpUI : MonoBehaviour
             group.blocksRaycasts = false;
             gameObject.SetActive(false);
         }
+    }
+
+    private void NextPage()
+    {
+        SetPage(1);
+    }
+
+    private void PrevPage()
+    {
+        SetPage(0);
+    }
+
+    private void SetPage(int index)
+    {
+        pageIndex = Mathf.Clamp(index, 0, 1);
+
+        bool onControls = (pageIndex == 0);
+        bool onBasics   = (pageIndex == 1);
+
+        if (controlsPage) controlsPage.SetActive(onControls);
+        if (basicsPage)   basicsPage.SetActive(onBasics);
+
+        if (prevButton) prevButton.gameObject.SetActive(!onControls);
+        if (nextButton) nextButton.gameObject.SetActive(!onBasics);
     }
 }
