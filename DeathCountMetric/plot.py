@@ -136,7 +136,7 @@ def world_to_pixel(level_name, world_x, world_y):
     # ⚙️ Per-level offsets
     level_offsets = {
         "flip level 1 new": (80, 20),       # move right (+) or left (-). # move up (+) or down (-)
-        "flip level 2 update": (0, 0),  # tweak as needed
+        "flip level 2 update": (0, -10),  # tweak as needed
         "flip level 3 new": (-15, 5)      # tweak as needed
     }
     offset_x, offset_y = level_offsets.get(level_name_clean, (0, 0))
