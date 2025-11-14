@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submitCooldownSec: 1
 --- !u!114 &109302886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +777,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &141871158
@@ -51634,6 +51637,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &252388879
@@ -52453,6 +52458,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &309557646
@@ -53639,6 +53646,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &407512688
@@ -54907,6 +54916,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &458967443
@@ -55727,7 +55738,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 7.653782, y: 0.17931032}
+  m_Offset: {x: 4.442376, y: 0.17931032}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55737,7 +55748,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 33.11561, y: 13.141379}
+  m_Size: {x: 26.692797, y: 13.141379}
   m_EdgeRadius: 0
 --- !u!4 &538615827
 Transform:
@@ -57552,6 +57563,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &748417674
@@ -60965,6 +60978,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &938004403
@@ -64319,6 +64334,7 @@ GameObject:
   - component: {fileID: 1255703706}
   - component: {fileID: 1255703705}
   - component: {fileID: 1255703704}
+  - component: {fileID: 1255703710}
   m_Layer: 0
   m_Name: M2
   m_TagString: Untagged
@@ -64403,6 +64419,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &1255703707
@@ -64521,6 +64539,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 672631258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1255703710
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255703703}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1257412078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65108,6 +65153,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1292754283
@@ -65378,6 +65425,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!50 &1324023415
@@ -65986,6 +66035,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!50 &1364996671
@@ -67370,6 +67421,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!234 &1484401240
@@ -67838,6 +67891,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &1510142289
@@ -68653,6 +68708,7 @@ GameObject:
   - component: {fileID: 1697372223}
   - component: {fileID: 1697372222}
   - component: {fileID: 1697372221}
+  - component: {fileID: 1697372227}
   m_Layer: 0
   m_Name: M3
   m_TagString: Untagged
@@ -68737,6 +68793,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &1697372224
@@ -68855,6 +68913,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 672631258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1697372227
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697372220}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1700406135
 GameObject:
   m_ObjectHideFlags: 0
@@ -86763,6 +86848,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &1779123100
@@ -87513,6 +87600,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!50 &1827466478
@@ -91266,6 +91355,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &1901218199
@@ -93365,6 +93456,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 2
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!50 &1991932710
@@ -94299,7 +94392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2150630192346296121, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -23.5
       objectReference: {fileID: 0}
     - target: {fileID: 2150630192346296121, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94339,7 +94432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4639705430169737840, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: speed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4639705430169737840, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: targetOffset.x
@@ -94391,11 +94484,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Size.x
-      value: 6.039064
+      value: 6.0390635
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Size.y
-      value: 7.473401
+      value: 20.053272
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Offset.x
@@ -94403,7 +94496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Offset.y
-      value: 4.0871024
+      value: 9.921391
       objectReference: {fileID: 0}
     - target: {fileID: 6849418242642914827, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_SortingLayer
