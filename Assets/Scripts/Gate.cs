@@ -12,6 +12,9 @@ public class Gate : MonoBehaviour
     public LevelCompleteUI levelCompleteUI;
     [SerializeField] private bool skipLevelCompleteUI = false;
 
+    [Header("Progress")]
+    [Tooltip("Which scene to unlock after finishing THIS scene")]
+    public string sceneToUnlock;
 
     // Initialize references to colliders and gate states.
     private void Reset()
@@ -43,6 +46,21 @@ public class Gate : MonoBehaviour
             //LevelAnalytics.Instance?.OnLevelCompleted();
             LevelAnalytics.Instance?.MarkGateReached();
         }
+
+        if (!other.CompareTag("Player")) return;
+        if (ActionSwitchTracker.Instance != null) ActionSwitchTracker.Instance.SaveAndReset();
+        if (!string.IsNullOrEmpty(sceneToUnlock)) LevelProgress.Unlock(sceneToUnlock);
+        if (skipLevelCompleteUI)
+        {
+            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            levelCompleteUI.Show();
+        }
+        LevelAnalytics.Instance?.MarkGateReached();
     }
     
 }

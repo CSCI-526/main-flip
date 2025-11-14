@@ -31954,6 +31954,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2544921597132723700, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
+      propertyPath: sceneToUnlock
+      value: flip level 3 New
+      objectReference: {fileID: 0}
+    - target: {fileID: 2544921597132723700, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: levelCompleteUI
       value: 
       objectReference: {fileID: 1926529875}
