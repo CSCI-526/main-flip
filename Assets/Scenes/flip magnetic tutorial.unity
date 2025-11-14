@@ -4658,6 +4658,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1523222388}
     m_Modifications:
+    - target: {fileID: 2046478563696372466, guid: 37362744708b34d1f87c5a9341ef1eed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050366376248969916, guid: 37362744708b34d1f87c5a9341ef1eed, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
     - target: {fileID: 6507526489980912495, guid: 37362744708b34d1f87c5a9341ef1eed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6697,7 +6705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Different pole attract (GREEN)
+  m_text: Different pole attract
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
