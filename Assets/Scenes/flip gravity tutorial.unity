@@ -1332,7 +1332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToDestroy:
   - {fileID: 2096669483}
-  - {fileID: 794685503}
   objectsToActivate:
   - {fileID: 1995863402}
   - {fileID: 1671873153}
@@ -1682,7 +1681,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToDestroy:
   - {fileID: 1995863402}
-  - {fileID: 1671873153}
   objectsToActivate:
   - {fileID: 913483603}
   - {fileID: 223308862}
@@ -3955,6 +3953,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1292754283
@@ -8565,9 +8565,9 @@ MonoBehaviour:
   targets:
   - {fileID: 1292754277}
   - {fileID: 0}
-  forceFieldSwitchEnergy: 1
+  forceFieldSwitchEnergy: 0
   forceFieldSwitchMaxEnergy: 1
-  forceFieldSwitchEnergyRechargeSpeed: 1
+  forceFieldSwitchEnergyRechargeSpeed: 0.3
   energyBar: {fileID: 1829483575}
 --- !u!4 &1865198109
 Transform:

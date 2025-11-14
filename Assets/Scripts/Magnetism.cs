@@ -31,8 +31,8 @@ public class Magnetism : MonoBehaviour
     public MagnetismMode currentMode;
     public MagnetismAxis currentAxis;
 
-    private List<Rigidbody2D> attractedObjects = new List<Rigidbody2D>();
-    private List<GameObject> collidingMagnets = new List<GameObject>();
+    public List<Rigidbody2D> attractedObjects = new List<Rigidbody2D>();
+    public List<GameObject> collidingMagnets = new List<GameObject>();
 
     private GameObject connctionLine, arrowLineA, arrowLineB, arrowArrowA, arrowArrowB;
     private LineRenderer connectionLineRenderer, arrowLineRendererA, arrowLineRendererB;
@@ -47,13 +47,11 @@ public class Magnetism : MonoBehaviour
         connctionLine = new GameObject("ConnectionLine");
         arrowLineA = new GameObject("ArrowLineA");
         arrowLineB = new GameObject("ArrowLineB");
-        arrowArrowA = new GameObject("ArrowArrowA");
-        arrowArrowB = new GameObject("ArrowArrowB");
+        arrowArrowA = new GameObject("ArrowArrowA_"+this.gameObject.name);
+        arrowArrowB = new GameObject("ArrowArrowB_"+this.gameObject.name);
         connctionLine.transform.parent = this.transform;
         arrowLineA.transform.parent = this.transform;
         arrowLineB.transform.parent = this.transform;
-        arrowArrowA.transform.parent = this.transform;
-        arrowArrowB.transform.parent = this.transform;
 
         connectionLineRenderer = GetComponent<LineRenderer>();
         if (connectionLineRenderer == null && !this.gameObject.name.Contains("Player"))
@@ -74,6 +72,10 @@ public class Magnetism : MonoBehaviour
             Material lineMaterial = new Material(lineShader);
             if (dashTexture != null)
             {
+                lineMaterial.mainTexture = dashTexture;
+            }
+            else {
+                dashTexture = Resources.Load<Texture2D>("dotline_8x16.drawio");
                 lineMaterial.mainTexture = dashTexture;
             }
             connectionLineRenderer.material = lineMaterial;
@@ -141,7 +143,12 @@ public class Magnetism : MonoBehaviour
     void FixedUpdate()
     {
         UpdateMagneticForce();
+    }
+
+    void Update()
+    {
         UpdateColor();
+        UpdateConnectionLine();
     }
 
     void UpdateMagneticForce()
@@ -194,7 +201,50 @@ public class Magnetism : MonoBehaviour
                 {
                     rb.AddForce(direction.normalized * currentMagnetismStrength, ForceMode2D.Force);
                 }
+            }
+        }
+    }
 
+    void UpdateConnectionLine()
+    {
+        if (currentPole == MagneticPole.None) return;
+
+        foreach (Rigidbody2D rb in attractedObjects) {
+            if (rb == null) continue; // skip null references
+            if (rb.gameObject == this.gameObject) continue; // skip self
+            if (!rb.tag.Contains("Player")) continue; // only affect the player
+
+            Magnetism otherMagnetism = rb.GetComponent<Magnetism>();
+            if (otherMagnetism != null && otherMagnetism.currentPole != MagneticPole.None && currentPole != MagneticPole.None) {
+                Vector2 direction = (Vector2)transform.position - rb.position;
+                MagnetismMode effectiveMode = currentMode;
+
+                
+                if (collidingMagnets.Contains(rb.gameObject) && changeableMode)
+                {
+                    effectiveMode = MagnetismMode.Radial;
+                }
+
+                if (effectiveMode == MagnetismMode.Axial)
+                {
+                    if (currentAxis == MagnetismAxis.None)
+                    {
+                        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                            direction.x = 0;
+                        else
+                            direction.y = 0;
+                    }
+                    else if (currentAxis == MagnetismAxis.X)
+                        direction.y = 0;
+                    else if (currentAxis == MagnetismAxis.Y)
+                        direction.x = 0;
+                }
+
+                float currentMagnetismStrength = maxMagnetismStrength;
+                float distance = direction.magnitude;
+                currentMagnetismStrength /= (distance * distance);
+                currentMagnetismStrength = Mathf.Max(minMagnetismStrength, Mathf.Min(currentMagnetismStrength, maxMagnetismStrength));
+                bool isAttracting = (currentPole != otherMagnetism.currentPole);
                 drawConnectionLine(rb, isAttracting, currentMagnetismStrength, distance);
             }
         }
@@ -224,7 +274,7 @@ public class Magnetism : MonoBehaviour
                 connectionLineRenderer.material.mainTextureScale = new Vector2(distance * dashesPerUnit, 1f);
             }
 
-            connectionLineRenderer.widthMultiplier = 0.001f * currentMagnetismStrength;
+            connectionLineRenderer.widthMultiplier = Mathf.Max(0.001f * currentMagnetismStrength, 0.1f);
         }
 
         if (arrowLineRendererA != null)
@@ -259,13 +309,12 @@ public class Magnetism : MonoBehaviour
                 arrowArrowRendererA.transform.position = endPos;
                 
                 float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                Quaternion targetWorldRotation = Quaternion.Euler(0f, 0f, targetAngle);
-                Quaternion parentInverseRotation = Quaternion.Inverse(this.transform.rotation);
-                Quaternion localRotation = parentInverseRotation * targetWorldRotation;
-                Quaternion spriteCorrection = Quaternion.Euler(0f, 0f, -90f);
-                arrowArrowRendererA.transform.localRotation = localRotation * spriteCorrection;
+                float effectAngle = isAttracting ? -90f : 90f;
+                float finalAngle = targetAngle+effectAngle;
+                arrowArrowRendererA.transform.rotation = Quaternion.Euler(0, 0, finalAngle);
 
-                arrowArrowRendererA.transform.localScale = new Vector3(0.001f * currentMagnetismStrength, 0.002f * currentMagnetismStrength, 1f);
+                //arrowArrowRendererA.transform.localScale = new Vector3(Mathf.Max(0.005f * currentMagnetismStrength, 0.5f), Mathf.Max(0.01f * currentMagnetismStrength, 1f), Mathf.Max(0.01f * currentMagnetismStrength, 1f));
+                arrowArrowRendererA.transform.localScale = new Vector3(0.5f, 1f, 1f);
                 arrowArrowRendererA.color = currColor;
             }
         }
@@ -297,7 +346,18 @@ public class Magnetism : MonoBehaviour
 
             if (arrowArrowRendererB != null)
             {
+                Sprite loadedSprite = Resources.Load<Sprite>("Triangle");
+                arrowArrowRendererB.sprite = loadedSprite;
                 arrowArrowRendererB.transform.position = endPos;
+                
+                float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                float effectAngle = isAttracting ? 90f : -90f;
+                float finalAngle = targetAngle+effectAngle;
+                arrowArrowRendererB.transform.rotation = Quaternion.Euler(0, 0, finalAngle);
+
+                //arrowArrowRendererB.transform.localScale = new Vector3(Mathf.Max(0.005f * currentMagnetismStrength, 0.5f), Mathf.Max(0.01f * currentMagnetismStrength, 1f), Mathf.Max(0.01f * currentMagnetismStrength, 1f));
+                arrowArrowRendererB.transform.localScale = new Vector3(0.5f, 1f, 1f);
+                arrowArrowRendererB.color = currColor;
             }
         }
     }
@@ -356,7 +416,8 @@ public class Magnetism : MonoBehaviour
     {
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         if (rb != null && !attractedObjects.Contains(rb))
-            attractedObjects.Add(rb);
+            if (rb.gameObject != this.gameObject && rb.tag.Contains("Player"))
+                attractedObjects.Add(rb);
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -371,13 +432,18 @@ public class Magnetism : MonoBehaviour
                 arrowLineRendererA.positionCount = 0;
             if (arrowLineRendererB != null)
                 arrowLineRendererB.positionCount = 0;
+            if (arrowArrowRendererA != null)
+                arrowArrowRendererA.sprite = null;
+            if (arrowArrowRendererB != null)
+                arrowArrowRendererB.sprite = null;
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         Magnetism otherMagnetism = collision.gameObject.GetComponent<Magnetism>();
-        if (otherMagnetism != null && !collidingMagnets.Contains(collision.gameObject))
+        Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+        if (otherMagnetism != null && !collidingMagnets.Contains(collision.gameObject) && rb.tag.Contains("Player"))
             collidingMagnets.Add(collision.gameObject);
     }
 

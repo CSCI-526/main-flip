@@ -10,3 +10,9 @@ player_id,scene,N,switch_count,action_switch_rate,sequence
 838CD9BD-DCD3-5B8E-982B-FEABDFCA867B,flip level 3 New,24,13,0.5416667,0|0|0|0|0|0|1|0|0|1|0|0|0|1|0|1|0|1|0|1|0|0|1|1
 838CD9BD-DCD3-5B8E-982B-FEABDFCA867B,flip level 3 New,1,0,0,1
 838CD9BD-DCD3-5B8E-982B-FEABDFCA867B,flip level 3 New,1,0,0,1
+c607d2939771f9beaebee62efaf28800eb50cdde,flip magnetic tutorial,5,0,0,1|1|1|1|1
+c607d2939771f9beaebee62efaf28800eb50cdde,flip level 1 New,54,36,0.6666667,0|0|1|1|0|0|1|0|1|0|0|1|0|0|1|0|0|1|1|0|0|1|1|0|1|0|1|0|0|0|1|0|0|1|0|1|1|0|1|0|0|1|0|0|1|1|0|0|1|0|1|0|1|0
+c607d2939771f9beaebee62efaf28800eb50cdde,flip magnetic tutorial,5,0,0,1|1|1|1|1
+c607d2939771f9beaebee62efaf28800eb50cdde,flip gravity tutorial,4,0,0,0|0|0|0
+c607d2939771f9beaebee62efaf28800eb50cdde,flip gravity tutorial,4,0,0,0|0|0|0
+c607d2939771f9beaebee62efaf28800eb50cdde,flip magnetic tutorial,5,0,0,1|1|1|1|1
