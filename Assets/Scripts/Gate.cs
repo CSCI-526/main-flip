@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     public GameObject openedGate;
     public LevelCompleteUI levelCompleteUI;
     [SerializeField] private bool skipLevelCompleteUI = false;
+    public int idealOpsFromLastCheckpointToGate = 0;
 
     [Header("Progress")]
     [Tooltip("Which scene to unlock after finishing THIS scene")]
@@ -45,6 +46,7 @@ public class Gate : MonoBehaviour
             //StartCoroutine(UploadMetric());
             //LevelAnalytics.Instance?.OnLevelCompleted();
             LevelAnalytics.Instance?.MarkGateReached();
+            OperationAnalytics.Instance?.OnGateReached(idealOpsFromLastCheckpointToGate);
         }
 
         if (!other.CompareTag("Player")) return;

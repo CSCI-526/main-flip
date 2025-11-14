@@ -1190,6 +1190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1714090001}
   checkpointIndex: 1
+  checkpointId: A1
+  idealOpsToNext: 0
 --- !u!1 &82788809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1484,7 @@ GameObject:
   - component: {fileID: 109302884}
   - component: {fileID: 109302883}
   - component: {fileID: 109302885}
+  - component: {fileID: 109302886}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1533,6 +1536,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &109302886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109302882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff2e46e329d742659d167c8bba5756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryFromId: entry.111415707
+  entryIdealId: entry.530231308
+  entryActualId: entry.1013680714
+  entryDeltaId: entry.871820406
+  entrySceneId: entry.1645766974
 --- !u!1 &115124135
 GameObject:
   m_ObjectHideFlags: 0
@@ -33659,6 +33679,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint4
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: checkpointId
+      value: 2_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -34442,6 +34470,14 @@ PrefabInstance:
     - target: {fileID: 1818902886443924199, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Name
       value: Checkpoint3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: checkpointId
+      value: 2_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -42571,6 +42607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint2
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: checkpointId
+      value: 2_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.y
       value: 4
@@ -46833,6 +46877,14 @@ PrefabInstance:
     - target: {fileID: 1818902886443924199, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Name
       value: Checkpoint 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: checkpointId
+      value: 2_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.y

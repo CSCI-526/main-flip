@@ -31,6 +31,7 @@ public class GlobalGravity2D : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy >= 1.0f)
             {
                 currentSign *= -1f;   
