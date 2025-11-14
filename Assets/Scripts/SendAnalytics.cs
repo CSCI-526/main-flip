@@ -4,7 +4,7 @@ using System.Text;
 
 public class SendAnalytics : MonoBehaviour
 {
-    private const string FORM_URL = "https://script.google.com/macros/s/AKfycbzNSDrHq6YQLMMASKa3KmIK1gvG88ecSAqNzxZfewLLjXSu8czyb0igJh0yNfoXMgzgkQ/exec";
+    private const string FORM_URL = "https://script.google.com/macros/s/AKfycbxpej3S83yfNBUr73r_eKi07ch-Zt3aClb4Y9D4wsiI_qCItQxPNrKt8xcej1fGO5W13g/exec";
 
     public static void SendDeath(string levelName, float x, float y)
     {
