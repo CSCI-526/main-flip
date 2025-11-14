@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+
 
 public class OperationAnalytics : MonoBehaviour
 {
@@ -34,10 +36,14 @@ public void OnCheckpointReached(Checkpoint reached)
     if (prevCheckpoint != null)
     {
         int ideal = Mathf.Max(0, prevCheckpoint.idealOpsToNext);
-        StartCoroutine(UploadSegment(prevCheckpoint.checkpointId,
-                                     reached.checkpointId,
-                                     ideal,
-                                     opsThisSegment));
+        //StartCoroutine(UploadSegment(prevCheckpoint.checkpointId,
+        //                             reached.checkpointId,
+        //                             ideal,
+        //                             opsThisSegment));
+        UploadSegment(prevCheckpoint.checkpointId,
+                        reached.checkpointId,
+                        ideal,
+                        opsThisSegment);
     }
 
     prevCheckpoint = reached;
@@ -64,7 +70,7 @@ public void OnCheckpointReached(Checkpoint reached)
         opsThisSegment = 0;
     }
 
-    private IEnumerator UploadSegment(string fromId, string toId, int idealOps, int actualOps)
+    private async Task UploadSegment(string fromId, string toId, int idealOps, int actualOps)
     {
         int delta = actualOps - idealOps;
         string sceneName = SceneManager.GetActiveScene().name;
@@ -78,9 +84,23 @@ public void OnCheckpointReached(Checkpoint reached)
 
         string URL = "https://docs.google.com/forms/d/e/1FAIpQLSdV_R7GeC2pZl8s_91xWHJY8xi7y7PKM-AXnV_Tjn4w4XB6HQ/formResponse"; 
         UnityWebRequest www = UnityWebRequest.Post(URL, form);
-        yield return www.SendWebRequest();
-        Debug.Log("[Checkpoint] upload result ");
-        if (www.result != UnityWebRequest.Result.Success)
-            Debug.LogError("[OpsAnalytics] Upload failed: " + www.error);
+        
+        try
+        {
+            await www.SendWebRequest();
+            Debug.Log("[Checkpoint] upload result ");
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("[OpsAnalytics] Upload failed: " + www.error);
+            }
+            else
+            {
+                Debug.Log("[OpsAnalytics] Upload successful!");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"[OpsAnalytics] Exception during upload: {ex.Message}");
+        }
     }
 }
