@@ -11,6 +11,7 @@ public class Gate : MonoBehaviour
     public GameObject openedGate;
     public LevelCompleteUI levelCompleteUI;
     [SerializeField] private bool skipLevelCompleteUI = false;
+    public int idealOpsFromLastCheckpointToGate = 0;
 
 
     // Initialize references to colliders and gate states.
@@ -42,6 +43,7 @@ public class Gate : MonoBehaviour
             //StartCoroutine(UploadMetric());
             //LevelAnalytics.Instance?.OnLevelCompleted();
             LevelAnalytics.Instance?.MarkGateReached();
+            OperationAnalytics.Instance?.OnGateReached(idealOpsFromLastCheckpointToGate);
         }
     }
     

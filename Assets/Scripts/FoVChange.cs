@@ -49,7 +49,7 @@ public class FoVChange : MonoBehaviour
         {
             isChangingForLeaving = true;
             isChangingFoV = true;
-            Debug.Log("[OnTriggerExit2D @ " + this.gameObject.name + "] setting isChangingFoV to true for leaving");
+            //Debug.Log("[OnTriggerExit2D @ " + this.gameObject.name + "] setting isChangingFoV to true for leaving");
             newSize = originalSize;
         }
     }
@@ -65,7 +65,7 @@ public class FoVChange : MonoBehaviour
                     Debug.Log("[Update @ " + this.gameObject.name + "] Checking FoVChange on " + foVChange.gameObject.name+". isChangingFoV = " + foVChange.isChangingFoV);
                     if (foVChange.isChangingFoV && !foVChange.isChangingForLeaving)
                     {
-                        Debug.Log("[Update @ " + this.gameObject.name + "] Another FoVChange (" + foVChange.gameObject.name + ") is still changing FoV. Canceling leave change.");
+                        //Debug.Log("[Update @ " + this.gameObject.name + "] Another FoVChange (" + foVChange.gameObject.name + ") is still changing FoV. Canceling leave change.");
                         isChangingFoV = false;
                         isChangingForLeaving = false;
                         return;
@@ -75,7 +75,7 @@ public class FoVChange : MonoBehaviour
 
             if (cam.orthographicSize != newSize)
             {
-                Debug.Log("[Update @ " + this.gameObject.name + "] Changing FoV from " + cam.orthographicSize + " to " + newSize);
+                //Debug.Log("[Update @ " + this.gameObject.name + "] Changing FoV from " + cam.orthographicSize + " to " + newSize);
                 cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newSize, Time.deltaTime * changeSpeed);
                 if (Mathf.Abs(cam.orthographicSize - newSize) < 0.01f)
                 {
