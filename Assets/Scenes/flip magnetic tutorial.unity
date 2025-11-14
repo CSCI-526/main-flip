@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 110852964}
   - component: {fileID: 110852963}
   - component: {fileID: 110852962}
+  - component: {fileID: 110852968}
   m_Layer: 0
   m_Name: Magnetic 3
   m_TagString: Untagged
@@ -775,6 +776,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!50 &110852968
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110852961}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &119191985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,6 +2967,7 @@ GameObject:
   - component: {fileID: 585726199}
   - component: {fileID: 585726198}
   - component: {fileID: 585726203}
+  - component: {fileID: 585726204}
   m_Layer: 0
   m_Name: Magnetic 2
   m_TagString: Untagged
@@ -3143,6 +3172,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionStrength: 100
+--- !u!50 &585726204
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585726197}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &667577619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,6 +3531,7 @@ GameObject:
   - component: {fileID: 777247833}
   - component: {fileID: 777247832}
   - component: {fileID: 777247834}
+  - component: {fileID: 777247835}
   m_Layer: 0
   m_Name: Magnetic 1
   m_TagString: Untagged
@@ -3679,6 +3736,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frictionStrength: 100
+--- !u!50 &777247835
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777247828}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &829335385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +4011,7 @@ MonoBehaviour:
   openedGate: {fileID: 350991475}
   levelCompleteUI: {fileID: 968071179}
   skipLevelCompleteUI: 0
+  sceneToUnlock: 
 --- !u!50 &875619331
 Rigidbody2D:
   serializedVersion: 5
@@ -5042,6 +5127,7 @@ GameObject:
   - component: {fileID: 1115943909}
   - component: {fileID: 1115943908}
   - component: {fileID: 1115943907}
+  - component: {fileID: 1115943913}
   m_Layer: 0
   m_Name: Magnetic 4
   m_TagString: Untagged
@@ -5246,6 +5332,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+--- !u!50 &1115943913
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115943906}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1202788258
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +6846,7 @@ GameObject:
   - component: {fileID: 1751999590}
   - component: {fileID: 1751999589}
   - component: {fileID: 1751999588}
+  - component: {fileID: 1751999594}
   m_Layer: 0
   m_Name: Magnetic 5
   m_TagString: Untagged
@@ -6937,6 +7051,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!50 &1751999594
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751999587}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1769401969
 GameObject:
   m_ObjectHideFlags: 0
