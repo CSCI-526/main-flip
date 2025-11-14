@@ -377,6 +377,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &7466119
@@ -938,6 +940,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!4 &37195789 stripped
@@ -1536,6 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc483cbacbc46e2bd862593f14ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  submitCooldownSec: 1
 --- !u!114 &109302886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,6 +2291,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &161420267
@@ -30223,6 +30230,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &291377587
@@ -30562,6 +30571,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!61 &314921682
@@ -32720,6 +32731,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!1 &714611387
@@ -33602,6 +33615,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &771465810
@@ -33685,7 +33700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: idealOpsToNext
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -35865,6 +35880,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1292754283
@@ -36276,6 +36293,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!1 &1305351999
@@ -38341,6 +38360,8 @@ MonoBehaviour:
   currentPole: 1
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1648957240
@@ -43289,6 +43310,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 0
   currentAxis: 0
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!1 &1865198107
@@ -43607,6 +43630,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1874979656
@@ -45708,6 +45733,8 @@ MonoBehaviour:
   currentPole: 2
   currentMode: 1
   currentAxis: 1
+  attractedObjects: []
+  collidingMagnets: []
   dashTexture: {fileID: 0}
   dashesPerUnit: 5
 --- !u!114 &1999386394
@@ -46884,7 +46911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: idealOpsToNext
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.y
