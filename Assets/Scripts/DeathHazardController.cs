@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class DeathHazardController : MonoBehaviour
 {
@@ -16,6 +18,19 @@ public class DeathHazardController : MonoBehaviour
     [Header("UI")]
     public GameObject hintPanel;
 
+    [Header("Flash Settings")]
+    public float flashDuration = 0.5f;
+    public float flashInterval = 0.1f;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip countdownBeepClip; 
+
+    [Header("Countdown UI")]
+    public GameObject countdownPanel;
+    public Slider countdownSlider;
+    public TextMeshProUGUI countdownText;
+
     [Header("Debug")]
     public string regionId = "Zone";
     [SerializeField] private int deathCount = 0;
@@ -25,11 +40,16 @@ public class DeathHazardController : MonoBehaviour
     [SerializeField] private float powerEndTime = 0f;
 
     private bool optionUnlocked = false;
+    private float powerStartTime = 0f;
+    private int lastBeepSecond = -1;
+    private Coroutine flashCoroutine;
 
     void Awake()
     {
         if (hintPanel)
             hintPanel.SetActive(false);
+        if (countdownPanel)
+            countdownPanel.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,9 +77,39 @@ public class DeathHazardController : MonoBehaviour
 
     void Update()
     {
-        if (powerActive && Time.time >= powerEndTime)
+        if (powerActive)
         {
-            EndPowerWindow();
+            float remaining = powerEndTime - Time.time;
+            if (remaining < 0f) remaining = 0f;
+
+            if (countdownSlider)
+            {
+                float ratio = powerDuration > 0f ? remaining / powerDuration : 0f;
+                countdownSlider.value = ratio;
+            }
+
+            int remainingInt = Mathf.CeilToInt(remaining);
+            if (countdownText)
+            {
+                countdownText.text = Mathf.CeilToInt(remaining).ToString() + "s";
+            }
+            
+            if (remainingInt <= 5 && remainingInt > 0)
+            {
+                if (remainingInt != lastBeepSecond)
+                {
+                    lastBeepSecond = remainingInt;
+                    if (audioSource && countdownBeepClip)
+                    {
+                        audioSource.PlayOneShot(countdownBeepClip);
+                    }
+                }
+            }
+
+            if (Time.time >= powerEndTime)
+            {
+                EndPowerWindow();
+            }
         }
 
         if (!playerInside) return;
@@ -103,14 +153,33 @@ public class DeathHazardController : MonoBehaviour
 
         optionUnlocked = false;
 
+        lastBeepSecond = -1;
+
         hazardsInactive = true;
+
+        if (hintPanel)
+            hintPanel.SetActive(false);
+
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+        }
+        flashCoroutine = StartCoroutine(FlashAndDisableHazards());
+
         foreach (var h in hazardsToToggle)
         {
             if (h != null) h.SetActive(false);
         }
 
-        if (hintPanel)
-            hintPanel.SetActive(true);
+        if (countdownPanel)
+            countdownPanel.SetActive(true);
+
+        if (countdownSlider)
+            countdownSlider.value = 1f;
+
+        if (countdownText)
+            countdownText.text = Mathf.CeilToInt(powerDuration).ToString() + "s";
 
         Debug.Log($"[DeathRegion] {regionId} power window START, duration = {powerDuration}s");
     }
@@ -118,6 +187,24 @@ public class DeathHazardController : MonoBehaviour
     private void ToggleHazards()
     {
         hazardsInactive = !hazardsInactive;
+
+        if (hazardsInactive)
+        {
+            if (flashCoroutine != null)
+            {
+                StopCoroutine(flashCoroutine);
+                flashCoroutine = null;
+            }
+            flashCoroutine = StartCoroutine(FlashAndDisableHazards());
+        }
+        else
+        {
+            if (flashCoroutine != null)
+            {
+                StopCoroutine(flashCoroutine);
+                flashCoroutine = null;
+            }
+        }
 
         foreach (var h in hazardsToToggle)
         {
@@ -127,10 +214,49 @@ public class DeathHazardController : MonoBehaviour
         Debug.Log($"[DeathRegion] {regionId} hazards now " + (hazardsInactive ? "INACTIVE" : "ACTIVE"));
     }
 
+    private IEnumerator FlashAndDisableHazards()
+    {
+        var renderers = new List<SpriteRenderer>();
+        foreach (var h in hazardsToToggle)
+        {
+            if (h == null) continue;
+            renderers.AddRange(h.GetComponentsInChildren<SpriteRenderer>());
+        }
+
+        float elapsed = 0f;
+        bool visible = true;
+
+        while (elapsed < flashDuration)
+        {
+            visible = !visible;
+            foreach (var r in renderers)
+            {
+                if (r != null)
+                    r.enabled = visible;
+            }
+            elapsed += flashInterval;
+            yield return new WaitForSeconds(flashInterval);
+        }
+
+        foreach (var r in renderers)
+        {
+            if (r != null)
+                r.enabled = true;
+        }
+
+        foreach (var h in hazardsToToggle)
+        {
+            if (h != null)
+                h.SetActive(false);
+        }    
+    }
+
     private void EndPowerWindow()
     {
         powerActive = false;
         hazardsInactive = false;
+
+        lastBeepSecond = -1;
 
         foreach (var h in hazardsToToggle)
         {
@@ -142,6 +268,9 @@ public class DeathHazardController : MonoBehaviour
 
         if (hintPanel)
             hintPanel.SetActive(false);
+
+        if (countdownPanel)
+            countdownPanel.SetActive(false);
 
         Debug.Log($"[DeathRegion] {regionId} power window END, hazards re-enabled, counter reset.");
     }
