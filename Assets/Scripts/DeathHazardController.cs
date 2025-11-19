@@ -73,6 +73,12 @@ public class DeathHazardController : MonoBehaviour
 
         if (hintPanel)
             hintPanel.SetActive(false);
+
+        if (countdownPanel)
+            countdownPanel.SetActive(false);
+
+        if (audioSource)
+            audioSource.Stop();
     }
 
     void Update()
@@ -94,7 +100,7 @@ public class DeathHazardController : MonoBehaviour
                 countdownText.text = Mathf.CeilToInt(remaining).ToString() + "s";
             }
             
-            if (remainingInt <= 5 && remainingInt > 0)
+            if (playerInside && remainingInt <= 5 && remainingInt > 0)
             {
                 if (remainingInt != lastBeepSecond)
                 {
