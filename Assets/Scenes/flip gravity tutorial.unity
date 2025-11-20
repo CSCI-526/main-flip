@@ -2541,6 +2541,10 @@ MonoBehaviour:
   defaultSpawn: {fileID: 6465376672024325605}
   isRespawning: 0
   freezeSeconds: 1
+  respawnUI: {fileID: 0}
+  respawnUICountDownbar: {fileID: 0}
+  deathWaitTime: 10
+  isSkipRequested: 0
 --- !u!4 &726483533
 Transform:
   m_ObjectHideFlags: 0
@@ -3067,7 +3071,7 @@ MonoBehaviour:
   levelCompleteUI: {fileID: 968071179}
   skipLevelCompleteUI: 1
   idealOpsFromLastCheckpointToGate: 0
-  sceneToUnlock: flip level 1 New
+  sceneToUnlock: 
 --- !u!50 &875619331
 Rigidbody2D:
   serializedVersion: 5
