@@ -19,6 +19,10 @@ public class LevelManager : MonoBehaviour
     [Header("Respawn Freeze")]
     [SerializeField] private float freezeSeconds = 1f;
 
+    public GameObject respawnUI;
+    public GameObject respawnUICountDownbar;
+    public float deathWaitTime = 10f;
+    public bool isSkipRequested = false;
 
     // Initialize
     void Awake()
@@ -54,7 +58,49 @@ public class LevelManager : MonoBehaviour
     public void RespawnPlayer()
     {
         if (isRespawning) return;
-        StartCoroutine(RespawnRoutine());
+        //StartCoroutine(RespawnRoutine());
+        StartCoroutine(PreRespawnRoutine());
+    }
+
+    public void SkipDeathCountDown()
+    {
+        Debug.Log("Skip Death Countdown");
+        isSkipRequested = true;
+    }
+
+    IEnumerator PreRespawnRoutine()
+    {
+        isRespawning = true;
+        isSkipRequested = false;
+
+        if (respawnUI != null)
+        {
+            respawnUI.SetActive(true);
+        }
+        float timer = deathWaitTime;
+        while (timer > 0f)
+        {
+            if (Input.GetKeyDown(KeyCode.R) || isSkipRequested)
+            {
+                isSkipRequested = true;
+                break;
+            }
+            if (respawnUICountDownbar != null)
+            {
+                var bar = respawnUICountDownbar.GetComponent<UnityEngine.UI.Slider>();
+                if (bar != null)
+                {
+                    bar.value = timer / deathWaitTime;
+                }
+            }
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+        if (respawnUI != null)
+        {
+            respawnUI.SetActive(false);
+        }
+        yield return StartCoroutine(RespawnRoutine());
     }
 
     IEnumerator RespawnRoutine()
@@ -100,7 +146,4 @@ public class LevelManager : MonoBehaviour
 
         isRespawning = false;
     }
-
-    
-
 }
