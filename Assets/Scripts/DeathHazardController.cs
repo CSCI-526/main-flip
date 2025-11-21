@@ -79,6 +79,24 @@ public class DeathHazardController : MonoBehaviour
 
         if (audioSource)
             audioSource.Stop();
+
+        if (hazardsInactive)
+        {
+            hazardsInactive = false;
+
+            if (flashCoroutine != null)
+            {
+                StopCoroutine(flashCoroutine);
+                flashCoroutine = null;
+            }
+
+            foreach (var h in hazardsToToggle)
+            {
+                if (h != null) h.SetActive(true);
+            }
+
+            Debug.Log($"[DeathRegion] {regionId}: Player left region → hazards forced ON");
+        }
     }
 
     void Update()
