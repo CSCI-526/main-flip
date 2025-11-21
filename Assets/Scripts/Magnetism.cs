@@ -368,7 +368,7 @@ public class Magnetism : MonoBehaviour
         if (sr == null) return;
         Color newColor;
 
-        if (this.name.Contains("PseudoPlayer"))
+        if (this.tag.Equals("PseudoPlayer"))
         {
             if (currentPole == MagneticPole.North)
             {
@@ -389,7 +389,7 @@ public class Magnetism : MonoBehaviour
                 sr.color = Color.black;
             }
         }
-        if (this.name.Contains("Player"))
+        if (this.tag.Equals("Player"))
         {
             if (currentPole == MagneticPole.North)
             {
