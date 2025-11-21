@@ -37,6 +37,9 @@ public class GlobalGravity2D : MonoBehaviour
         if (keyBindUI != null && keyBindUI.isRebinding)
             return;
 
+        if (LevelManager.Instance.isRespawning)
+            return;
+
         //if (Input.GetKeyDown(KeyCode.Space))
         if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]))
         {

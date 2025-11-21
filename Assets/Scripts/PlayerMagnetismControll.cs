@@ -25,6 +25,9 @@ public class PlayerMagnetismControll : MonoBehaviour
         if (keyBindUI != null && keyBindUI.isRebinding)
             return;
 
+        if (LevelManager.Instance.isRespawning)
+            return;
+
         UpdatePole();
 
         if (forceFieldSwitchEnergy < forceFieldSwitchMaxEnergy)
