@@ -55,11 +55,17 @@ public class LevelManager : MonoBehaviour
     }
 
     // Freeze all players for freezeSeconds, then resume
-    public void RespawnPlayer()
+    public void RespawnPlayer(bool isDead=false)
     {
         if (isRespawning) return;
-        //StartCoroutine(RespawnRoutine());
-        StartCoroutine(PreRespawnRoutine());
+        if (!isDead)
+        {
+            StartCoroutine(RespawnRoutine());
+        }
+        else
+        {
+            StartCoroutine(PreRespawnRoutine());
+        }
     }
 
     public void SkipDeathCountDown()
