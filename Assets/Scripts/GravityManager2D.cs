@@ -21,15 +21,24 @@ public class GlobalGravity2D : MonoBehaviour
     public Image energyBar;
     float lastSwitchTime = -Mathf.Infinity;
 
+    private InputManager inputManager;
+    private KeyBindUI keyBindUI;
+
     void Awake()
     {
+        inputManager = InputManager.Instance;
+        keyBindUI = GetComponent<KeyBindUI>();
         currentSign = startUpwards ? -1f : 1f;
         ApplyGravityScaleToAll(true);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (keyBindUI != null && keyBindUI.isRebinding)
+            return;
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]))
         {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy >= 1.0f)

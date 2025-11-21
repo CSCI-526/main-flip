@@ -1,0 +1,111 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
+using TMPro;
+
+public class KeyBindUI : MonoBehaviour
+{
+    [System.Serializable]
+    public class KeyUIItem
+    {
+        public string actionName;
+        public TMP_Text keyDisplayText;
+        public Button rebindButton;
+    }
+    public List<KeyUIItem> keyItems = new List<KeyUIItem>();
+    private string currentActionToRebind = null;
+    private bool isWaitingForKey = false;
+    public bool isRebinding = false;
+    public GameObject pausePanel;
+
+    void Start()
+    {
+        UpdateAllKeyTexts();
+    }
+
+    void Update()
+    {
+        if (!isWaitingForKey)
+            return;
+    }
+
+    void OnGUI()
+    {
+        if (isWaitingForKey && currentActionToRebind != null)
+        {
+            Event e = Event.current;
+            if (e.isKey && e.type == EventType.KeyDown)
+            {
+                if (e.keyCode == KeyCode.Escape)
+                {
+                    StartCoroutine(StopRebinding());
+                    return;
+                }
+
+                InputManager.Instance.SetKey(currentActionToRebind, e.keyCode);
+                Debug.Log($"Function {currentActionToRebind} changed to {e.keyCode}");
+
+                UpdateKeyText(currentActionToRebind, e.keyCode);
+                isWaitingForKey = false;
+                StartCoroutine(StopRebinding());
+            }
+        }
+    }
+
+    public void StartRebinding(string actionName)
+    {
+        if (isWaitingForKey) return;
+
+        currentActionToRebind = actionName;
+        isWaitingForKey = true;
+        isRebinding = true;
+
+        var item = keyItems.Find(x => x.actionName == actionName);
+        if (item != null)
+        {
+            item.keyDisplayText.text = "Press any key..."; 
+        }
+    }
+
+    private IEnumerator StopRebinding()
+    {
+        yield return null;
+        yield return null;
+        yield return null;
+        currentActionToRebind = null;
+        isRebinding = false;
+        UpdateAllKeyTexts();
+    }
+
+    private void UpdateAllKeyTexts()
+    {
+        foreach (var item in keyItems)
+        {
+            if (InputManager.Instance.keyMappings.TryGetValue(item.actionName, out KeyCode key))
+            {
+                item.keyDisplayText.text = key.ToString();
+            }
+        }
+    }
+
+    private void UpdateKeyText(string actionName, KeyCode newKey)
+    {
+        var item = keyItems.Find(x => x.actionName == actionName);
+        if (item != null)
+        {
+            item.keyDisplayText.text = newKey.ToString();
+        }
+    }
+
+    public void Show()
+    {   pausePanel.SetActive(false);
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+}

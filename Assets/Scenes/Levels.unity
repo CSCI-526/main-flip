@@ -1703,29 +1703,19 @@ MonoBehaviour:
     sceneName: flip gravity tutorial
     lockedVisual: {fileID: 0}
     unlockedVisual: {fileID: 0}
-    labelGraphics:
-    - {fileID: 175488660}
+    labelGraphics: []
   - button: {fileID: 658448911}
     sceneAsset: {fileID: 102900000, guid: c380777d703cb457397d4297e669ae06, type: 3}
     sceneName: flip level 1 New
     lockedVisual: {fileID: 0}
     unlockedVisual: {fileID: 0}
-    labelGraphics:
-    - {fileID: 760695874}
+    labelGraphics: []
   - button: {fileID: 1414393292}
     sceneAsset: {fileID: 102900000, guid: 9bfb12c8acae8488da53381b76a6e734, type: 3}
     sceneName: flip level 2 Update
     lockedVisual: {fileID: 0}
     unlockedVisual: {fileID: 0}
-    labelGraphics:
-    - {fileID: 464133333}
-  - button: {fileID: 1160378736}
-    sceneAsset: {fileID: 102900000, guid: 7ad6be718b16c83448f3ee570250be8c, type: 3}
-    sceneName: flip level 3 New
-    lockedVisual: {fileID: 0}
-    unlockedVisual: {fileID: 0}
-    labelGraphics:
-    - {fileID: 1977712733}
+    labelGraphics: []
 --- !u!1 &1977712731
 GameObject:
   m_ObjectHideFlags: 0
