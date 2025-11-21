@@ -3801,6 +3801,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_B1
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.y
       value: 6
@@ -56504,6 +56508,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_C2
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 1.5
@@ -59609,6 +59617,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_A2
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -62134,6 +62146,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_C3
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 1.5
@@ -62773,6 +62789,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_C6
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 5
@@ -62914,6 +62934,10 @@ PrefabInstance:
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: checkpointId
       value: 3_C4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -63671,6 +63695,10 @@ PrefabInstance:
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: checkpointId
       value: 3_B3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -64615,6 +64643,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_A3
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -64683,6 +64715,10 @@ PrefabInstance:
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: checkpointId
       value: 3_C1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -69635,6 +69671,10 @@ PrefabInstance:
       propertyPath: checkpointId
       value: 3_A1
       objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -72679,6 +72719,10 @@ PrefabInstance:
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: checkpointId
       value: 3_B2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
@@ -76912,6 +76956,10 @@ PrefabInstance:
     - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: checkpointId
       value: 3_C5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754016596488188065, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
+      propertyPath: idealOpsToNext
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5171116235883604915, guid: 9ea227506ec8f46279dcad0d151d39e7, type: 3}
       propertyPath: m_Size.x
