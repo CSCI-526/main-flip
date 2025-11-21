@@ -11,8 +11,20 @@ public class PlayerMagnetismControll : MonoBehaviour
     public Image energyBar;
     float lastSwitchTime = -Mathf.Infinity;
 
+    private InputManager inputManager;
+    private KeyBindUI keyBindUI;
+
+    void Start()
+    {
+        inputManager = InputManager.Instance;
+        keyBindUI = GetComponent<KeyBindUI>();
+    }
+
     void Update()
     {
+        if (keyBindUI != null && keyBindUI.isRebinding)
+            return;
+
         UpdatePole();
 
         if (forceFieldSwitchEnergy < forceFieldSwitchMaxEnergy)
@@ -51,7 +63,8 @@ public class PlayerMagnetismControll : MonoBehaviour
 
         if (magnetism == null) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
+        //if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
+        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchMagnetic"])) {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy < 1.0f)
                 return;
