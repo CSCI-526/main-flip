@@ -389,7 +389,7 @@ public class Magnetism : MonoBehaviour
                 sr.color = Color.black;
             }
         }
-        else
+        if (this.name.Contains("Player"))
         {
             if (currentPole == MagneticPole.North)
             {
