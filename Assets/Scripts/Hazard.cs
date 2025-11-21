@@ -18,6 +18,6 @@ public class Hazard : MonoBehaviour
         // Pass 'this' as the MonoBehaviour for StartCoroutine
         SendAnalytics.SendDeath(this, levelName, pos.x, pos.y);
 
-        LevelManager.Instance.RespawnPlayer();
+        LevelManager.Instance.RespawnPlayer(true);
     }
 }
