@@ -5,6 +5,7 @@ public class TriggerZoneAToB : MonoBehaviour
     public RotatePivot PivottoStart;
     public GameObject[] toDeactivate;
     public GameObject[] toActivate;
+    public GameObject[] toDestroy;
 
     void Reset()
     {
@@ -16,13 +17,18 @@ public class TriggerZoneAToB : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        if (PivottoStart) PivottoStart.PauseRotation(false);
+        if (PivottoStart) 
+            PivottoStart.PauseRotation(false);
 
         foreach (var zone in toDeactivate)
             if (zone) zone.SetActive(false);
 
         foreach (var zone in toActivate)
             if (zone) zone.SetActive(true);
+
+        foreach (var obj in toDestroy)
+
+            if (obj) Destroy(obj);
 
         Destroy(gameObject);
     }

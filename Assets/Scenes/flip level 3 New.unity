@@ -59784,6 +59784,7 @@ MonoBehaviour:
   - {fileID: 1068098487}
   - {fileID: 909317808}
   - {fileID: 1443521255}
+  toDestroy: []
 --- !u!1001 &609393738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61538,13 +61539,15 @@ MonoBehaviour:
   PivottoStart: {fileID: 335581258}
   toDeactivate:
   - {fileID: 937904738}
-  - {fileID: 250267460}
-  - {fileID: 519607811}
   - {fileID: 1926440010}
   - {fileID: 1417683961}
   - {fileID: 1461887905}
   toActivate:
   - {fileID: 278003576}
+  - {fileID: 880683109}
+  toDestroy:
+  - {fileID: 250267460}
+  - {fileID: 519607811}
 --- !u!60 &749948399
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -66880,7 +66883,7 @@ MonoBehaviour:
   toDeactivate:
   - {fileID: 2072679835}
   - {fileID: 225468480}
-  - {fileID: 407512684}
+  - {fileID: 1443521255}
   toActivate:
   - {fileID: 13213281}
   - {fileID: 516365050}
@@ -95259,19 +95262,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Size.x
-      value: 1.5354366
+      value: 2.465561
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Size.y
-      value: 1.5354366
+      value: 4.2224536
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Offset.x
-      value: -16.526218
+      value: -16.543442
       objectReference: {fileID: 0}
     - target: {fileID: 6841900976662761340, guid: 533061728f48141bcb62a8d50cd9cac1, type: 3}
       propertyPath: m_Offset.y
-      value: 6.7677183
+      value: 8.111227
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95327,7 +95330,7 @@ MonoBehaviour:
   - {fileID: 1292754277}
   - {fileID: 1484401241}
   - {fileID: 407512692}
-  - {fileID: 0}
+  - {fileID: 1443521258}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

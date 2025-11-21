@@ -44,6 +44,9 @@ public class DeathHazardController : MonoBehaviour
     private int lastBeepSecond = -1;
     private Coroutine flashCoroutine;
 
+    private Dictionary<GameObject, bool> originalStates = new Dictionary<GameObject, bool>();
+
+
     void Awake()
     {
         if (hintPanel)
@@ -80,24 +83,19 @@ public class DeathHazardController : MonoBehaviour
         if (audioSource)
             audioSource.Stop();
 
-        if (hazardsInactive)
+        RestoreOriginalStates();
+
+        hazardsInactive = false;
+
+        if (flashCoroutine != null)
         {
-            hazardsInactive = false;
-
-            if (flashCoroutine != null)
-            {
-                StopCoroutine(flashCoroutine);
-                flashCoroutine = null;
-            }
-
-            foreach (var h in hazardsToToggle)
-            {
-                if (h != null) h.SetActive(true);
-            }
-
-            Debug.Log($"[DeathRegion] {regionId}: Player left region → hazards forced ON");
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
         }
+
+        Debug.Log($"[DeathRegion] {regionId}: Player left region → hazards restored");
     }
+
 
     void Update()
     {
@@ -115,9 +113,9 @@ public class DeathHazardController : MonoBehaviour
             int remainingInt = Mathf.CeilToInt(remaining);
             if (countdownText)
             {
-                countdownText.text = Mathf.CeilToInt(remaining).ToString() + "s";
+                countdownText.text = remainingInt.ToString() + "s";
             }
-            
+
             if (playerInside && remainingInt <= 5 && remainingInt > 0)
             {
                 if (remainingInt != lastBeepSecond)
@@ -176,7 +174,6 @@ public class DeathHazardController : MonoBehaviour
         powerEndTime = Time.time + powerDuration;
 
         optionUnlocked = false;
-
         lastBeepSecond = -1;
 
         hazardsInactive = true;
@@ -190,6 +187,8 @@ public class DeathHazardController : MonoBehaviour
             flashCoroutine = null;
         }
         flashCoroutine = StartCoroutine(FlashAndDisableHazards());
+
+        CacheOriginalStates();
 
         foreach (var h in hazardsToToggle)
         {
@@ -206,6 +205,16 @@ public class DeathHazardController : MonoBehaviour
             countdownText.text = Mathf.CeilToInt(powerDuration).ToString() + "s";
 
         Debug.Log($"[DeathRegion] {regionId} power window START, duration = {powerDuration}s");
+    }
+
+    private void CacheOriginalStates()
+    {
+        originalStates.Clear();
+        foreach (var h in hazardsToToggle)
+        {
+            if (h == null) continue;
+            originalStates[h] = h.activeSelf;
+        }
     }
 
     private void ToggleHazards()
@@ -279,13 +288,9 @@ public class DeathHazardController : MonoBehaviour
     {
         powerActive = false;
         hazardsInactive = false;
-
         lastBeepSecond = -1;
 
-        foreach (var h in hazardsToToggle)
-        {
-            if (h != null) h.SetActive(true);
-        }
+        RestoreOriginalStates();
 
         deathCount = 0;
         optionUnlocked = false;
@@ -296,7 +301,20 @@ public class DeathHazardController : MonoBehaviour
         if (countdownPanel)
             countdownPanel.SetActive(false);
 
-        Debug.Log($"[DeathRegion] {regionId} power window END, hazards re-enabled, counter reset.");
+        Debug.Log($"[DeathRegion] {regionId} power window END, hazards restored to original state.");
     }
 
+
+    private void RestoreOriginalStates()
+    {
+        foreach (var h in hazardsToToggle)
+        {
+            if (h == null) continue;
+
+            if (originalStates.ContainsKey(h))
+            {
+                h.SetActive(originalStates[h]);
+            }
+        }
+    }
 }
