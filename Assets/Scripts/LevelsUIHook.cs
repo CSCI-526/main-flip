@@ -17,33 +17,9 @@ public class LevelItem
     [SerializeField, HideInInspector] private string sceneName;
     public string SceneName => sceneName;
 
-    // optional visuals
-    public GameObject lockedVisual;    // padlock, dim layer, etc.
-    public GameObject unlockedVisual;  // check mark, glow, etc.
-    public List<Graphic> labelGraphics = new List<Graphic>();
-
-    static readonly Color UnlockedText = new Color(36f/255f, 70f/255f, 116f/255f, 1f);
-    static readonly Color LockedText   = new Color(0.60f, 0.60f, 0.60f, 1f);
-
 #if UNITY_EDITOR
     public void SyncName() { sceneName = sceneAsset ? sceneAsset.name : ""; }
 #endif
-
-    public void ApplyLockState()
-    {
-        bool canPlay = LevelProgress.IsUnlocked(SceneName);
-        if (button) button.interactable = canPlay;
-        if (labelGraphics != null)
-        {
-            foreach (var g in labelGraphics)
-            {
-                if (!g) continue;
-                g.color = canPlay ? UnlockedText : LockedText;
-            }
-        }
-        if (lockedVisual)   lockedVisual.SetActive(!canPlay);
-        if (unlockedVisual) unlockedVisual.SetActive(canPlay);
-    }
 }
 
 public class LevelsUIHook : MonoBehaviour
@@ -60,31 +36,20 @@ public class LevelsUIHook : MonoBehaviour
 
     void Awake() { Time.timeScale = 1f; }
 
-    void OnEnable()  { RefreshButtons(); } // refresh when coming back
-    void Start()     { WireAll(); }
-
-    void WireAll()
+    void Start()
     {
-        // Back
         if (btnBack && !string.IsNullOrEmpty(backSceneName))
             Wire(btnBack, backSceneName);
 
-        // Levels
-        foreach (var it in levels)
+        //Levels
+        foreach(var it in levels)
         {
-            if (it == null || it.button == null) continue;
+            if (it == null) continue;
+            if (it.button == null) continue;
             if (string.IsNullOrEmpty(it.SceneName)) continue;
             Wire(it.button, it.SceneName);
         }
-    }
-
-    void RefreshButtons()
-    {
-        foreach (var it in levels)
-        {
-            if (it == null) continue;
-            it.ApplyLockState();
-        }
+        Debug.Log("LevelsUIHook wired");
     }
 
     void Wire(Button b, string scene)

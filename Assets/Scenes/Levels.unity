@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -471,8 +471,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0001, y: 60.84031}
-  m_SizeDelta: {x: 1036.7212, y: 487.2408}
+  m_AnchoredPosition: {x: -1.2232, y: 45}
+  m_SizeDelta: {x: 780.6165, y: 368.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &385743203
 MonoBehaviour:
@@ -684,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -1.4326477}
+  m_AnchoredPosition: {x: -90, y: -1.4326477}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658448911
@@ -1110,7 +1110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 348, y: -128}
+  m_AnchoredPosition: {x: 237, y: -63}
   m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994196127
@@ -1243,7 +1243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -1.4326477}
+  m_AnchoredPosition: {x: 269.99997, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160378736
@@ -1513,7 +1513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -1.4326477}
+  m_AnchoredPosition: {x: -270, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1407445726
@@ -1646,7 +1646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: -1.4326477}
+  m_AnchoredPosition: {x: 90, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414393292
@@ -1930,21 +1930,18 @@ MonoBehaviour:
   - button: {fileID: 1407445726}
     sceneAsset: {fileID: 102900000, guid: 5f1337ed95825b9408f707688027b296, type: 3}
     sceneName: flip gravity tutorial
-    lockedVisual: {fileID: 0}
-    unlockedVisual: {fileID: 0}
-    labelGraphics: []
   - button: {fileID: 658448911}
     sceneAsset: {fileID: 102900000, guid: c380777d703cb457397d4297e669ae06, type: 3}
     sceneName: flip level 1 New
-    lockedVisual: {fileID: 0}
-    unlockedVisual: {fileID: 0}
-    labelGraphics: []
   - button: {fileID: 1414393292}
     sceneAsset: {fileID: 102900000, guid: 9bfb12c8acae8488da53381b76a6e734, type: 3}
-    sceneName: flip level 2 Update
-    lockedVisual: {fileID: 0}
-    unlockedVisual: {fileID: 0}
-    labelGraphics: []
+    sceneName: flip level 2 with Art
+  - button: {fileID: 1160378736}
+    sceneAsset: {fileID: 102900000, guid: 7ad6be718b16c83448f3ee570250be8c, type: 3}
+    sceneName: flip level 3 New
+  - button: {fileID: 994196127}
+    sceneAsset: {fileID: 102900000, guid: ff06eaff9a2074ae3ba05925e4e1686d, type: 3}
+    sceneName: MainMenu
 --- !u!1 &1939605365
 GameObject:
   m_ObjectHideFlags: 0
