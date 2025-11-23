@@ -25,28 +25,17 @@ public class Gate : MonoBehaviour
     // Level complete when player enters the open gate.
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (ActionSwitchTracker.Instance != null)
-                ActionSwitchTracker.Instance.SaveAndReset();
-            if (skipLevelCompleteUI)
-                {
-                    int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                        SceneManager.LoadScene(nextIndex);
-                }
-                else
-                {
-                    levelCompleteUI.Show();
-                }
-            //StartCoroutine(UploadMetric());
-            //LevelAnalytics.Instance?.OnLevelCompleted();
-            LevelAnalytics.Instance?.MarkGateReached();
-            OperationAnalytics.Instance?.OnGateReached(idealOpsFromLastCheckpointToGate);
-        }
-
         if (!other.CompareTag("Player")) return;
-        if (ActionSwitchTracker.Instance != null) ActionSwitchTracker.Instance.SaveAndReset();
+
+        // --- Play level complete sound ---
+        PlayerAudio playerAudio = other.GetComponent<PlayerAudio>();
+        if (playerAudio != null)
+            playerAudio.PlayLevelCompleteSound();
+
+        // --- Existing logic ---
+        if (ActionSwitchTracker.Instance != null)
+            ActionSwitchTracker.Instance.SaveAndReset();
+
         if (skipLevelCompleteUI)
         {
             int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -57,7 +46,10 @@ public class Gate : MonoBehaviour
         {
             levelCompleteUI.Show();
         }
+
         LevelAnalytics.Instance?.MarkGateReached();
+        OperationAnalytics.Instance?.OnGateReached(idealOpsFromLastCheckpointToGate);
     }
+
     
 }
