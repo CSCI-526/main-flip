@@ -1,10 +1,50 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MoveBackTrigger : MonoBehaviour
 {
     public GameObject platform;
     public SmoothMovement smoothMovement;
     private bool isTriggered = false;
+
+    public List<Collider2D> checkColliders;
+    public List<bool> checkCollidersTriggered;
+
+    void Start()
+    {
+        Collider2D playerColider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+        if (playerColider != null && !checkColliders.Contains(playerColider))
+        {
+            checkColliders.Add(playerColider);
+        }
+
+        while (checkCollidersTriggered.Count < checkColliders.Count)
+        {
+            checkCollidersTriggered.Add(false);
+        }
+    }
+
+    void Update()
+    {
+        bool readyToTrigger = true;
+        for (int i = 0; i < checkCollidersTriggered.Count; i++)
+        {
+            if (!checkCollidersTriggered[i])
+            {
+                readyToTrigger = false;
+                break;
+            }
+        }
+        if (readyToTrigger)
+        {
+            for (int i = 0; i < checkCollidersTriggered.Count; i++)
+            {
+                checkCollidersTriggered[i] = false;
+            }
+            smoothMovement.Deactivate();
+        }
+        
+    }
 
     void Reset()
     {
@@ -14,13 +54,14 @@ public class MoveBackTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //if (isTriggered) return;
-        if (other.CompareTag("Player"))
+        //if (other.CompareTag("Player"))
+        //{
+        //    smoothMovement.Deactivate();
+        //}
+        if (checkColliders.Contains(other))
         {
-            //isTriggered = true;
-            smoothMovement.Deactivate();
-            //Destroy(gameObject);
+            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" entered trigger area.");
+            checkCollidersTriggered[checkColliders.IndexOf(other)] = true;
         }
-        
     }
 }
