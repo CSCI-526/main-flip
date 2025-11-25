@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MoveTrigger : MonoBehaviour
 {
@@ -6,6 +7,17 @@ public class MoveTrigger : MonoBehaviour
     public SmoothMovement smoothMovement;
     private bool isTriggered = false;
     private SpriteRenderer spriteRenderer;
+
+    public List<Collider2D> checkColliders;
+
+    void Start()
+    {
+        Collider2D playerColider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+        if (playerColider != null && !checkColliders.Contains(playerColider))
+        {
+            checkColliders.Add(playerColider);
+        }
+    }
 
     void Awake()
     {
@@ -18,19 +30,28 @@ public class MoveTrigger : MonoBehaviour
         if (col) col.isTrigger = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (isTriggered) return;
-        if (other.CompareTag("Player"))
-        {
-            if (spriteRenderer) spriteRenderer.enabled = false;
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (isTriggered) return;
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        if (spriteRenderer) spriteRenderer.enabled = false;
+    //        smoothMovement.Activate();
+    //    }
+    //}
 
-            // isTriggered = true;
+    void OnTriggerStay2D(Collider2D other)
+    {
+        //if (isTriggered) return;
+        if (checkColliders.Contains(other))
+        {
+            Debug.Log("collider: "+other.name+" stay in open trigger area: "+gameObject.name);
+            if (spriteRenderer) spriteRenderer.enabled = false;
             smoothMovement.Activate();
-            // Destroy(gameObject);
+            //isTriggered = true;
         }
     }
-    
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

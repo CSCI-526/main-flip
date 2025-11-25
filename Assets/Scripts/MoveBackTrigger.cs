@@ -52,7 +52,8 @@ public class MoveBackTrigger : MonoBehaviour
         if (col) col.isTrigger = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    //void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         //if (other.CompareTag("Player"))
         //{
@@ -60,7 +61,7 @@ public class MoveBackTrigger : MonoBehaviour
         //}
         if (checkColliders.Contains(other))
         {
-            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" entered trigger area.");
+            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" entered close trigger area.");
             checkCollidersTriggered[checkColliders.IndexOf(other)] = true;
         }
     }
