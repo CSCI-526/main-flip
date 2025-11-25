@@ -100312,8 +100312,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5596754586016094269}
+    - targetCorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5596754586016094271}
   m_SourcePrefab: {fileID: 100100000, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+--- !u!1 &5596754586016094268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 5596754586016094267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5596754586016094269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596754586016094268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchGravity
+--- !u!1 &5596754586016094270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 5596754586016094267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5596754586016094271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596754586016094270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchMagnetic
 --- !u!224 &6507526490188270785 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2020867347786201394, guid: c15918104772249b8bc00e589643dd71, type: 3}

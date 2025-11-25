@@ -31276,8 +31276,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463818459}
+    - targetCorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463818461}
   m_SourcePrefab: {fileID: 100100000, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+--- !u!1 &463818458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 463818457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &463818459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463818458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchGravity
+--- !u!1 &463818460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 463818457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &463818461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463818460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchMagnetic
 --- !u!224 &475079864 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9053716889555120593, guid: 1f8c30fdea87641f6817368ef9c7dc6e, type: 3}

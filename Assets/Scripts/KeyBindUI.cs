@@ -51,6 +51,7 @@ public class KeyBindUI : MonoBehaviour
         KeyCode.X,
         KeyCode.Y,
         KeyCode.Z,
+        
         KeyCode.Alpha1,
         KeyCode.Alpha2,
         KeyCode.Alpha3,
@@ -74,7 +75,7 @@ public class KeyBindUI : MonoBehaviour
         
         KeyCode.Semicolon, // ;
         KeyCode.Quote, // '
-        KeyCode.Return,
+        //KeyCode.Return,
 
         KeyCode.LeftShift,
         KeyCode.Comma, // ,
@@ -161,7 +162,7 @@ public class KeyBindUI : MonoBehaviour
                     if (!actionName.Contains(currentActionToRebind)) {
                         if (InputManager.Instance.keyMappings[actionName] == e.keyCode)
                         {
-                            var item = keyItems.Find(x => x.actionName == actionName);
+                            var item = keyItems.Find(x => x.actionName == actionName.Replace("Alt", ""));
                             StartCoroutine(
                                 ShowConflictMessage(
                                     keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject,
@@ -176,6 +177,7 @@ public class KeyBindUI : MonoBehaviour
                 }
 
                 InputManager.Instance.SetKey(currentActionToRebind, e.keyCode);
+                
                 if (e.keyCode == KeyCode.LeftShift)
                 {
                     InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.RightShift);
@@ -184,10 +186,30 @@ public class KeyBindUI : MonoBehaviour
                 {
                     InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.LeftShift);
                 }
-                else
+                
+                if (e.keyCode == KeyCode.LeftControl)
                 {
-                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", e.keyCode);
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.RightControl);
                 }
+                else if (e.keyCode == KeyCode.RightControl)
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.LeftControl);
+                }
+                
+                if (e.keyCode == KeyCode.LeftAlt)
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.RightAlt);
+                }
+                else if (e.keyCode == KeyCode.RightAlt)
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.LeftAlt);
+                }
+
+                if (e.keyCode != KeyCode.LeftShift && e.keyCode != KeyCode.RightShift &&
+                    e.keyCode != KeyCode.LeftControl && e.keyCode != KeyCode.RightControl &&
+                    e.keyCode != KeyCode.LeftAlt && e.keyCode != KeyCode.RightAlt)
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", e.keyCode);
+                
                 Debug.Log($"Function {currentActionToRebind} changed to {e.keyCode}");
 
                 UpdateKeyText(currentActionToRebind, e.keyCode);
@@ -243,6 +265,14 @@ public class KeyBindUI : MonoBehaviour
                 else if (key == KeyCode.LeftShift || key == KeyCode.RightShift)
                 {
                     item.keyDisplayText.text = "Shift";
+                }
+                else if (key == KeyCode.LeftControl || key == KeyCode.RightControl)
+                {
+                    item.keyDisplayText.text = "Ctrl";
+                }
+                else if (key == KeyCode.LeftAlt || key == KeyCode.RightAlt)
+                {
+                    item.keyDisplayText.text = "Alt";
                 }
                 else {
                     item.keyDisplayText.text = key.ToString();
