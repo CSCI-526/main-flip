@@ -4706,7 +4706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press [Space]/Touch Left
+  m_text: 'Press [Space]
 
     to switch gravity direction'
   m_isRightToLeft: 0
