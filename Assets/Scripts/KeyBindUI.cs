@@ -12,6 +12,7 @@ public class KeyBindUI : MonoBehaviour
         public string actionName;
         public TMP_Text keyDisplayText;
         public Button rebindButton;
+        public TMP_Text conflictDisplayText;
     }
     public List<KeyUIItem> keyItems = new List<KeyUIItem>();
     private string currentActionToRebind = null;
@@ -50,6 +51,7 @@ public class KeyBindUI : MonoBehaviour
                         if (InputManager.Instance.keyMappings[actionName] == e.keyCode)
                         {
                             var item = keyItems.Find(x => x.actionName == actionName);
+                            StartCoroutine(ShowConflictMessage(keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject));
                             isWaitingForKey = false;
                             StartCoroutine(StopRebinding());
                             return;
@@ -104,6 +106,13 @@ public class KeyBindUI : MonoBehaviour
         UpdateAllKeyTexts();
     }
 
+    private IEnumerator ShowConflictMessage(GameObject messageObject)
+    {
+        messageObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        messageObject.SetActive(false);
+    }
+
     private void UpdateAllKeyTexts()
     {
         foreach (var item in keyItems)
@@ -145,7 +154,8 @@ public class KeyBindUI : MonoBehaviour
     }
 
     public void Show()
-    {   pausePanel.SetActive(false);
+    {   
+        pausePanel.SetActive(false);
         gameObject.SetActive(true);
     }
 
@@ -153,5 +163,11 @@ public class KeyBindUI : MonoBehaviour
     {
         gameObject.SetActive(false);
         pausePanel.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        InputManager.Instance.Reset();
+        UpdateAllKeyTexts();
     }
 }

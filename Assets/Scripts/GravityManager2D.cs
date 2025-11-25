@@ -27,7 +27,7 @@ public class GlobalGravity2D : MonoBehaviour
     void Awake()
     {
         inputManager = InputManager.Instance;
-        keyBindUI = GetComponent<KeyBindUI>();
+        keyBindUI = FindObjectOfType<KeyBindUI>(true);
         currentSign = startUpwards ? -1f : 1f;
         ApplyGravityScaleToAll(true);
     }

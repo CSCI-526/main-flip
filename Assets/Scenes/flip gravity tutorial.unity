@@ -3071,7 +3071,6 @@ MonoBehaviour:
   levelCompleteUI: {fileID: 968071179}
   skipLevelCompleteUI: 1
   idealOpsFromLastCheckpointToGate: 0
-  sceneToUnlock: 
 --- !u!50 &875619331
 Rigidbody2D:
   serializedVersion: 5
@@ -4040,6 +4039,7 @@ GameObject:
   - component: {fileID: 1292754282}
   - component: {fileID: 1292754283}
   - component: {fileID: 1292754284}
+  - component: {fileID: 1292754285}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4231,6 +4231,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 3
+--- !u!114 &1292754285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292754276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f3dcda3cba88b45925980f770836c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303678961
 GameObject:
   m_ObjectHideFlags: 0

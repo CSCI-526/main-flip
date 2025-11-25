@@ -20,7 +20,7 @@ public class Friction : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision)
     {
         Rigidbody2D otherRb = collision.rigidbody;
-        if (otherRb != null) {
+        if (otherRb != null && otherRb.tag.Contains("Player")) {
             if (otherRb.linearVelocity.sqrMagnitude > 0.01f) {
                 Vector2 frictionDirection = -otherRb.linearVelocity.normalized;
                 float frictionMagnitude = frictionStrength;

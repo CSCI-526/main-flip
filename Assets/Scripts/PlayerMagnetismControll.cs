@@ -17,7 +17,7 @@ public class PlayerMagnetismControll : MonoBehaviour
     void Start()
     {
         inputManager = InputManager.Instance;
-        keyBindUI = GetComponent<KeyBindUI>();
+        keyBindUI = FindObjectOfType<KeyBindUI>(true);
     }
 
     void Update()

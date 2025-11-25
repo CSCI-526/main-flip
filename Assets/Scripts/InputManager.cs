@@ -57,4 +57,13 @@ public class InputManager : MonoBehaviour
             keyMappings[actionName] = KeyCode.None;
         }
     }
+
+    public void Reset()
+    {
+        keyMappings["SwitchGravity"] = KeyCode.Space;
+        keyMappings["SwitchGravityAlt"] = KeyCode.Space;
+        keyMappings["SwitchMagnetic"] = KeyCode.LeftShift;
+        keyMappings["SwitchMagneticAlt"] = KeyCode.RightShift;
+        keyMappings["Respawn"] = KeyCode.R;
+    }
 }
