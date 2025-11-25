@@ -64,8 +64,17 @@ public class MoveBackTrigger : MonoBehaviour
         //}
         if (checkColliders.Contains(other))
         {
-            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" entered close trigger area.");
+            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" stay close trigger area.");
             checkCollidersTriggered[checkColliders.IndexOf(other)] = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (checkColliders.Contains(other))
+        {
+            Debug.Log("collider: "+other.name+", index: "+checkColliders.IndexOf(other)+" exit close trigger area.");
+            checkCollidersTriggered[checkColliders.IndexOf(other)] = false;
         }
     }
 }
