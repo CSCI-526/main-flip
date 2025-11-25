@@ -41,7 +41,7 @@ public class GlobalGravity2D : MonoBehaviour
             return;
 
         //if (Input.GetKeyDown(KeyCode.Space))
-        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]))
+        if (inputManager != null && (Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]) || Input.GetKeyDown(inputManager.keyMappings["SwitchGravityAlt"])))
         {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy >= 1.0f)

@@ -14,6 +14,7 @@ public class PlayerRespawnControl : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.R))
         if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["Respawn"]))
         {
+            Debug.Log("Respawn");
             LevelManager.Instance.RespawnPlayer();
         }
     }

@@ -67,7 +67,7 @@ public class PlayerMagnetismControll : MonoBehaviour
         if (magnetism == null) return;
 
         //if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
-        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchMagnetic"])) {
+        if (inputManager != null && (Input.GetKeyDown(inputManager.keyMappings["SwitchMagnetic"]) || Input.GetKeyDown(inputManager.keyMappings["SwitchMagneticAlt"]))) {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy < 1.0f)
                 return;

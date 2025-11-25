@@ -39,11 +39,37 @@ public class KeyBindUI : MonoBehaviour
             {
                 if (e.keyCode == KeyCode.Escape)
                 {
+                    isWaitingForKey = false;
                     StartCoroutine(StopRebinding());
                     return;
                 }
 
+                foreach (var actionName in InputManager.Instance.keyMappings.Keys)
+                {
+                    if (!actionName.Contains(currentActionToRebind)) {
+                        if (InputManager.Instance.keyMappings[actionName] == e.keyCode)
+                        {
+                            var item = keyItems.Find(x => x.actionName == actionName);
+                            isWaitingForKey = false;
+                            StartCoroutine(StopRebinding());
+                            return;
+                        }
+                    } 
+                }
+
                 InputManager.Instance.SetKey(currentActionToRebind, e.keyCode);
+                if (e.keyCode == KeyCode.LeftShift)
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.RightShift);
+                }
+                else if (e.keyCode == KeyCode.RightShift)
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", KeyCode.LeftShift);
+                }
+                else
+                {
+                    InputManager.Instance.SetKey(currentActionToRebind+"Alt", e.keyCode);
+                }
                 Debug.Log($"Function {currentActionToRebind} changed to {e.keyCode}");
 
                 UpdateKeyText(currentActionToRebind, e.keyCode);
@@ -84,7 +110,17 @@ public class KeyBindUI : MonoBehaviour
         {
             if (InputManager.Instance.keyMappings.TryGetValue(item.actionName, out KeyCode key))
             {
-                item.keyDisplayText.text = key.ToString();
+                if (key == KeyCode.None)
+                {
+                    item.keyDisplayText.text = "Unbound";
+                }
+                else if (key == KeyCode.LeftShift || key == KeyCode.RightShift)
+                {
+                    item.keyDisplayText.text = "Shift";
+                }
+                else {
+                    item.keyDisplayText.text = key.ToString();
+                }
             }
         }
     }
@@ -94,7 +130,17 @@ public class KeyBindUI : MonoBehaviour
         var item = keyItems.Find(x => x.actionName == actionName);
         if (item != null)
         {
-            item.keyDisplayText.text = newKey.ToString();
+            if (newKey == KeyCode.None)
+            {
+                item.keyDisplayText.text = "Unbound";
+            }
+            else if (newKey == KeyCode.LeftShift || newKey == KeyCode.RightShift)
+            {
+                item.keyDisplayText.text = "Shift";
+            }
+            else {
+                item.keyDisplayText.text = newKey.ToString();
+            }
         }
     }
 
