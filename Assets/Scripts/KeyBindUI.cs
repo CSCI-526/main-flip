@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 
+using System.Collections.Generic;
+using UnityEngine;
+
 public class KeyBindUI : MonoBehaviour
 {
     [System.Serializable]
@@ -19,6 +22,77 @@ public class KeyBindUI : MonoBehaviour
     private bool isWaitingForKey = false;
     public bool isRebinding = false;
     public GameObject pausePanel;
+
+    public static readonly List<KeyCode> LegalKeycodes = new List<KeyCode>
+    {
+        KeyCode.A,
+        KeyCode.B,
+        KeyCode.C,
+        KeyCode.D,
+        KeyCode.E,
+        KeyCode.F,
+        KeyCode.G,
+        KeyCode.H,
+        KeyCode.I,
+        KeyCode.J,
+        KeyCode.K,
+        KeyCode.L,
+        KeyCode.M,
+        KeyCode.N,
+        KeyCode.O,
+        KeyCode.P,
+        KeyCode.Q,
+        //KeyCode.R,
+        //KeyCode.S,
+        KeyCode.T,
+        KeyCode.U,
+        KeyCode.V,
+        KeyCode.W,
+        KeyCode.X,
+        KeyCode.Y,
+        KeyCode.Z,
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+        KeyCode.Alpha8,
+        KeyCode.Alpha9,
+        KeyCode.Alpha0,
+
+        KeyCode.BackQuote, // `
+        KeyCode.Minus, // -
+        KeyCode.Equals, // +
+        KeyCode.Backspace,
+        
+        KeyCode.Tab,
+        KeyCode.LeftBracket, // [
+        KeyCode.RightBracket, // ]
+        KeyCode.Backslash, // \
+        
+        KeyCode.Semicolon, // ;
+        KeyCode.Quote, // '
+        KeyCode.Return,
+
+        KeyCode.LeftShift,
+        KeyCode.Comma, // ,
+        KeyCode.Period, // .
+        KeyCode.Slash, // /
+        KeyCode.RightShift,
+
+        KeyCode.LeftControl,
+        KeyCode.LeftAlt,
+        KeyCode.Space,
+        KeyCode.RightAlt,
+        KeyCode.RightControl,
+        
+        KeyCode.LeftArrow,
+        KeyCode.RightArrow,
+        KeyCode.UpArrow,
+        KeyCode.DownArrow,
+    };
 
     void Start()
     {
@@ -45,13 +119,55 @@ public class KeyBindUI : MonoBehaviour
                     return;
                 }
 
+
+                if (e.keyCode == KeyCode.R) {
+                    StartCoroutine(
+                        ShowConflictMessage(
+                            keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject,
+                            "Conflict with \n Respawn Key"
+                        )
+                    );
+                    isWaitingForKey = false;
+                    StartCoroutine(StopRebinding());
+                    return;
+                }
+
+                if (e.keyCode == KeyCode.S) {
+                    StartCoroutine(
+                        ShowConflictMessage(
+                            keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject,
+                            "Conflict with \n Powerup Key"
+                        )
+                    );
+                    isWaitingForKey = false;
+                    StartCoroutine(StopRebinding());
+                    return;
+                }
+
+                if (!LegalKeycodes.Contains(e.keyCode)) {
+                    StartCoroutine(
+                        ShowConflictMessage(
+                            keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject,
+                            "Illegal Key \n Try Another"
+                        )
+                    );
+                    isWaitingForKey = false;
+                    StartCoroutine(StopRebinding());
+                    return;
+                }
+
                 foreach (var actionName in InputManager.Instance.keyMappings.Keys)
                 {
                     if (!actionName.Contains(currentActionToRebind)) {
                         if (InputManager.Instance.keyMappings[actionName] == e.keyCode)
                         {
                             var item = keyItems.Find(x => x.actionName == actionName);
-                            StartCoroutine(ShowConflictMessage(keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject));
+                            StartCoroutine(
+                                ShowConflictMessage(
+                                    keyItems.Find(x => x.actionName == currentActionToRebind).conflictDisplayText.gameObject,
+                                    "Conflict with " + item.actionName
+                                )
+                            );
                             isWaitingForKey = false;
                             StartCoroutine(StopRebinding());
                             return;
@@ -106,9 +222,10 @@ public class KeyBindUI : MonoBehaviour
         UpdateAllKeyTexts();
     }
 
-    private IEnumerator ShowConflictMessage(GameObject messageObject)
-    {
+    private IEnumerator ShowConflictMessage(GameObject messageObject, string message="")
+    {   
         messageObject.SetActive(true);
+        messageObject.GetComponent<TMP_Text>().text = message;
         yield return new WaitForSecondsRealtime(2f);
         messageObject.SetActive(false);
     }
