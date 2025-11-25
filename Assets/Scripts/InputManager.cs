@@ -25,8 +25,6 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        //Time.timeScale = 0.1f;
-        Time.timeScale = 0.5f;
         if (_instance == null)
         {
             _instance = this;

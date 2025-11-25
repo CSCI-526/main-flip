@@ -9,19 +9,22 @@ public class MoveBackTrigger : MonoBehaviour
 
     public List<Collider2D> checkColliders;
     public List<bool> checkCollidersTriggered;
+    public bool includePlayer=true;
 
     void Start()
     {
-        Collider2D playerColider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
-        if (playerColider != null && !checkColliders.Contains(playerColider))
+        if (includePlayer)
         {
-            checkColliders.Add(playerColider);
+            Collider2D playerColider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+            if (playerColider != null && !checkColliders.Contains(playerColider))
+            {
+                checkColliders.Add(playerColider);
+            }
         }
-
         while (checkCollidersTriggered.Count < checkColliders.Count)
         {
             checkCollidersTriggered.Add(false);
-        }
+        }   
     }
 
     void Update()

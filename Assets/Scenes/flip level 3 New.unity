@@ -55729,6 +55729,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3728495497298680103, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
+      propertyPath: includePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728495497298680103, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: checkColliders.Array.size
       value: 1
       objectReference: {fileID: 0}
