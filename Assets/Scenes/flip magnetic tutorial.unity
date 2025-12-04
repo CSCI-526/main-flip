@@ -12256,6 +12256,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1523222388}
     m_Modifications:
+    - target: {fileID: 745563153617387622, guid: 504bf3c88364af9498d97ceccd43e7da, type: 3}
+      propertyPath: m_text
+      value: Key Binding
+      objectReference: {fileID: 0}
     - target: {fileID: 4182725761672272522, guid: 504bf3c88364af9498d97ceccd43e7da, type: 3}
       propertyPath: m_Name
       value: KeyBindPanel

@@ -90968,6 +90968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: SwitchGravity
+  use_frame1: 1
 --- !u!1 &463818460 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
@@ -90986,6 +90987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: SwitchMagnetic
+  use_frame1: 1
 --- !u!4 &473536314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1788877792473350935, guid: d95534ae2cc444180baffd8134a35508, type: 3}
@@ -111685,6 +111687,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 475079864}
     m_Modifications:
+    - target: {fileID: 745563153617387622, guid: 504bf3c88364af9498d97ceccd43e7da, type: 3}
+      propertyPath: m_text
+      value: Key Binding
+      objectReference: {fileID: 0}
     - target: {fileID: 4182725761672272522, guid: 504bf3c88364af9498d97ceccd43e7da, type: 3}
       propertyPath: m_Name
       value: KeyBindPanel
