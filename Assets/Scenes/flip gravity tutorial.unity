@@ -400,6 +400,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11069379}
   m_CullTransparentMesh: 1
+--- !u!1 &14334568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 111313432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &14334572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14334568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchMagnetic
+  use_frame1: 1
 --- !u!1 &18116614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1099,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1499157309}
+    - targetCorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 14334572}
   m_SourcePrefab: {fileID: 100100000, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
 --- !u!1 &119191985
 GameObject:
@@ -8699,6 +8724,25 @@ RectTransform:
   m_AnchoredPosition: {x: 123.32498, y: -43.187508}
   m_SizeDelta: {x: 546.65, y: 286.375}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1499157305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 111313432}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1499157309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499157305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchGravity
+  use_frame1: 1
 --- !u!1 &1505088129
 GameObject:
   m_ObjectHideFlags: 0

@@ -11250,7 +11250,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1903601698}
+    - targetCorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1903601696}
   m_SourcePrefab: {fileID: 100100000, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
 --- !u!224 &1903601693 stripped
 RectTransform:
@@ -11268,6 +11274,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a437f556a0a4a23970f9f7040fb2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1903601695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2882836659426321997, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 1903601692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903601696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903601695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchMagnetic
+  use_frame1: 1
+--- !u!1 &1903601697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1575995556140393095, guid: be00ed05f9b3943f9a7f62b9af2dce91, type: 3}
+  m_PrefabInstance: {fileID: 1903601692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903601698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903601697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d08e1cd06525674a949f4bbbd01e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: SwitchGravity
+  use_frame1: 1
 --- !u!1 &1910307445
 GameObject:
   m_ObjectHideFlags: 0
