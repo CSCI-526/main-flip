@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0005493164, y: 0.00079345703}
+  m_AnchoredPosition: {x: -0.00048828125, y: 0.00079345703}
   m_SizeDelta: {x: 959.98, y: 539.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837903306
@@ -1692,19 +1692,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1414393293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LoadSceneByName, Assembly-CSharp
-        m_MethodName: Go
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: flip level 2
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1414393293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,8 +1922,8 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: c380777d703cb457397d4297e669ae06, type: 3}
     sceneName: flip level 1 New
   - button: {fileID: 1414393292}
-    sceneAsset: {fileID: 102900000, guid: 9bfb12c8acae8488da53381b76a6e734, type: 3}
-    sceneName: flip level 2 with Art
+    sceneAsset: {fileID: 102900000, guid: a2ca4634561c4486fad0fabd69abb347, type: 3}
+    sceneName: flip level 2 Update
   - button: {fileID: 1160378736}
     sceneAsset: {fileID: 102900000, guid: 7ad6be718b16c83448f3ee570250be8c, type: 3}
     sceneName: flip level 3 New
