@@ -151,7 +151,7 @@ public class GlobalGravity2D : MonoBehaviour
     void Awake()
     {
         inputManager = InputManager.Instance;
-        keyBindUI = GetComponent<KeyBindUI>();
+        keyBindUI = FindObjectOfType<KeyBindUI>(true);
         currentSign = startUpwards ? -1f : 1f;
         ApplyGravityScaleToAll(true);
 
@@ -170,7 +170,8 @@ public class GlobalGravity2D : MonoBehaviour
         if (LevelManager.Instance.isRespawning)
             return;
 
-        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (inputManager != null && (Input.GetKeyDown(inputManager.keyMappings["SwitchGravity"]) || Input.GetKeyDown(inputManager.keyMappings["SwitchGravityAlt"])))
         {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy >= 1.0f)

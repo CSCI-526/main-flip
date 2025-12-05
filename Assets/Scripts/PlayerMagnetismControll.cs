@@ -139,7 +139,7 @@ public class PlayerMagnetismControll : MonoBehaviour
     void Start()
     {
         inputManager = InputManager.Instance;
-        keyBindUI = GetComponent<KeyBindUI>();
+        keyBindUI = FindObjectOfType<KeyBindUI>(true);
     }
 
     void Update()
@@ -188,7 +188,8 @@ public class PlayerMagnetismControll : MonoBehaviour
 
         if (magnetism == null) return;
 
-        if (inputManager != null && Input.GetKeyDown(inputManager.keyMappings["SwitchMagnetic"])) {
+        //if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
+        if (inputManager != null && (Input.GetKeyDown(inputManager.keyMappings["SwitchMagnetic"]) || Input.GetKeyDown(inputManager.keyMappings["SwitchMagneticAlt"]))) {
             OperationAnalytics.Instance?.RegisterOperation();
             if (forceFieldSwitchEnergy < 1.0f)
                 return;

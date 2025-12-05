@@ -31,7 +31,9 @@ public class InputManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             keyMappings = new Dictionary<string, KeyCode>();
             keyMappings.Add("SwitchGravity", KeyCode.Space);
+            keyMappings.Add("SwitchGravityAlt", KeyCode.Space);
             keyMappings.Add("SwitchMagnetic", KeyCode.LeftShift);
+            keyMappings.Add("SwitchMagneticAlt", KeyCode.RightShift);
             keyMappings.Add("Respawn", KeyCode.R);
         }
         else
@@ -54,5 +56,14 @@ public class InputManager : MonoBehaviour
         {
             keyMappings[actionName] = KeyCode.None;
         }
+    }
+
+    public void Reset()
+    {
+        keyMappings["SwitchGravity"] = KeyCode.Space;
+        keyMappings["SwitchGravityAlt"] = KeyCode.Space;
+        keyMappings["SwitchMagnetic"] = KeyCode.LeftShift;
+        keyMappings["SwitchMagneticAlt"] = KeyCode.RightShift;
+        keyMappings["Respawn"] = KeyCode.R;
     }
 }

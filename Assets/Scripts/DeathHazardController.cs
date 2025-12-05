@@ -46,9 +46,14 @@ public class DeathHazardController : MonoBehaviour
 
     private Dictionary<GameObject, bool> originalStates = new Dictionary<GameObject, bool>();
 
+    private InputManager inputManager;
+    private KeyBindUI keyBindUI;
 
     void Awake()
     {
+        inputManager = InputManager.Instance;
+        keyBindUI = FindObjectOfType<KeyBindUI>(true);
+
         if (hintPanel)
             hintPanel.SetActive(false);
         if (countdownPanel)
@@ -99,6 +104,9 @@ public class DeathHazardController : MonoBehaviour
 
     void Update()
     {
+        if (keyBindUI != null && keyBindUI.isRebinding)
+            return;
+
         if (powerActive)
         {
             float remaining = powerEndTime - Time.time;
