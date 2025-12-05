@@ -167,7 +167,7 @@ public class GlobalGravity2D : MonoBehaviour
         if (keyBindUI != null && keyBindUI.isRebinding)
             return;
 
-        if (LevelManager.Instance.isRespawning)
+        if (LevelManager.Instance.isUncontrolable)
             return;
 
         //if (Input.GetKeyDown(KeyCode.Space))
@@ -244,6 +244,9 @@ public class GlobalGravity2D : MonoBehaviour
 
     public void switchGravity()
     {
+        if (LevelManager.Instance.isUncontrolable)
+            return;
+
         currentSign *= -1f;
 
         // ---------------------------

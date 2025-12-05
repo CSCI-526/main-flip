@@ -147,7 +147,7 @@ public class PlayerMagnetismControll : MonoBehaviour
         if (keyBindUI != null && keyBindUI.isRebinding)
             return;
 
-        if (LevelManager.Instance.isRespawning)
+        if (LevelManager.Instance.isUncontrolable)
             return;
 
         UpdatePole();
@@ -219,6 +219,9 @@ public class PlayerMagnetismControll : MonoBehaviour
     }
 
     public void switchPole() {
+        if (LevelManager.Instance.isUncontrolable)
+            return;
+
         Magnetism magnetism = GetComponent<Magnetism>();
 
         if (magnetism == null) return;

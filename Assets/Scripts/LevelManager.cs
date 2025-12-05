@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public Transform defaultSpawn;
     private Vector3 currentRespawnPos;
     public bool isRespawning = false;
+    public bool isUncontrolable = false;
 
     [Header("Respawn Freeze")]
     [SerializeField] private float freezeSeconds = 1f;
@@ -77,6 +78,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator PreRespawnRoutine()
     {
         isRespawning = true;
+        isUncontrolable = true;
         isSkipRequested = false;
 
         if (respawnUI != null)
@@ -112,6 +114,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator RespawnRoutine()
     {
         isRespawning = true;
+        isUncontrolable = true;
 
         var players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -138,6 +141,7 @@ public class LevelManager : MonoBehaviour
     
         }
 
+        isUncontrolable = false;
         yield return new WaitForSeconds(freezeSeconds);
 
         // unfreeze
