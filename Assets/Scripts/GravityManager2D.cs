@@ -128,7 +128,7 @@ public class GlobalGravity2D : MonoBehaviour
     [Header("Targets")]
     public List<Rigidbody2D> targets = new List<Rigidbody2D>(); 
 
-    float currentSign; 
+    public float currentSign; 
 
     public float forceFieldSwitchEnergy = 1.0f;
     public float forceFieldSwitchMaxEnergy = 1.0f;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum MagnetismAxis
 {
@@ -391,6 +392,12 @@ public class Magnetism : MonoBehaviour
         }
         if (this.tag.Equals("Player"))
         {
+            if (SceneManager.GetActiveScene().name.Contains("level 1"))
+            {
+                sr.color = Color.white;
+                return;
+            }
+
             if (currentPole == MagneticPole.North)
             {
                 if (ColorUtility.TryParseHtmlString("#E76963", out newColor))
