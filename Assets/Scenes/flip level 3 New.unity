@@ -55904,7 +55904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Size.x
-      value: 6.9660087
+      value: 10.588427
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Size.y
@@ -55912,7 +55912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Offset.x
-      value: -1.491749
+      value: 4.8589497
       objectReference: {fileID: 0}
     - target: {fileID: 6608623561015849349, guid: c610edaf30c1ac0478bc41b9e5c16a3a, type: 3}
       propertyPath: m_Offset.y
@@ -60389,6 +60389,7 @@ MonoBehaviour:
   gate: {fileID: 336394732}
   defaultSpawn: {fileID: 2117621610}
   isRespawning: 0
+  isUncontrolable: 0
   freezeSeconds: 1
   respawnUI: {fileID: 1289522337}
   respawnUICountDownbar: {fileID: 1342399815}
@@ -94827,6 +94828,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentSign: 0
   forceFieldSwitchEnergy: 1
   forceFieldSwitchMaxEnergy: 1
   forceFieldSwitchEnergyRechargeSpeed: 10
