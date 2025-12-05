@@ -2194,9 +2194,9 @@ RectTransform:
   - {fileID: 1202228483}
   m_Father: {fileID: 475079864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120, y: -90}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -90}
   m_SizeDelta: {x: 120, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &97048708
@@ -95484,6 +95484,7 @@ MonoBehaviour:
   gate: {fileID: 1923727590}
   defaultSpawn: {fileID: 1954303791}
   isRespawning: 0
+  isUncontrolable: 0
   freezeSeconds: 1
   respawnUI: {fileID: 555095846}
   respawnUICountDownbar: {fileID: 555095845}
@@ -106238,9 +106239,9 @@ RectTransform:
   - {fileID: 2007584829}
   m_Father: {fileID: 475079864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -90}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -120, y: -90}
   m_SizeDelta: {x: 120, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1215690426
